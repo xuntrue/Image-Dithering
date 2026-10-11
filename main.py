@@ -3,20 +3,26 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from src import dither, ImageLoader
+from src import dither, ImageLoader, ImageAnalyser
 from src.pixelize import pixelize
 
-IMAGE_NAMES = None          # None = every image in data/images, or e.g. ["photo.jpg"]
-MAX_SIZE = 160              # longest side after pixelizing
+IMAGE_NAMES = "Mario.jpg" # None = every image in data/images/
+MAX_SIZE = 64              # longest side after pixelizing
 METHODS = ["floyd-steinberg", "atkinson", "jarvis", "sierra"]
-METHOD = "floyd-steinberg"    
-LEVELS = 8                  # levels per channel (2 = black/white, or 8 colours with COLOR)
-COLOR = True               # False = grayscale, True = dither R, G, B separately
+METHOD = "floyd-steinberg"   
+LEVELS = 2                  # Distinct brightness values
+COLOR = True                # False = grayscale, True = dither R, G, B separately
 BAYER_SIZE = 4              # only used when METHOD == "bayer"
-UPSCALE = 4                 # enlarge result so dither pixels are visible (1 = OFF)
+UPSCALE = 2                # enlarge result so dither pixels are visible (1 = OFF)
 
 SHOW_RESULTS = True
 OUTPUT_DIR = Path("output")
+
+def load_image_paths() -> list[Path]:
+    paths = ImageLoader.list_images()
+    if IMAGE_NAMES is not None:
+        paths = [p for p in paths if p.name in IMAGE_NAMES]
+    return paths
 
 def dither_image(img: Image.Image) -> Image.Image:
     # Step 2: pixelize
@@ -33,14 +39,28 @@ def dither_image(img: Image.Image) -> Image.Image:
         out = out.resize((out.width * UPSCALE, out.height * UPSCALE), Image.Resampling.NEAREST)
     return out
 
+def analyse_image(img: Image.Image):
+    original = img
+    small = pixelize(original, 160)
+    gray_small = small.convert("L").convert("RGB")
+
+    bw = Image.fromarray(dither.apply(np.asarray(gray_small), "floyd-steinberg", 2)).convert("L")
+    colour = Image.fromarray(dither.apply(np.asarray(small), "floyd-steinberg", 2))
+
+    stages = [original, small, bw, colour]
+    names = ["Original", "Pixelized (160px)", "Dithered B/W (2 levels)", "Dithered colour (2 levels)"]
+    ImageAnalyser.compare(*stages, titles=names)
+
 def main() -> None:
-    # Step 1: load images
-    paths = ImageLoader.list_images()
-    if IMAGE_NAMES is not None:
-        paths = [p for p in paths if p.name in IMAGE_NAMES]
+    # Step 1: load image(s)
+    paths = load_image_paths()
     if not paths:
-        print("ERROR: No images found.")
         return
+
+    for image_path in paths:
+        print(f"Analysing {image_path.name}\n")
+        original = ImageLoader.load_image(image_path)
+        analyse_image(original)
 
     # Steps 2 & 3: pixelize an RGB image, then dither it
     OUTPUT_DIR.mkdir(exist_ok=True)

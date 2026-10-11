@@ -2,8 +2,6 @@ import random
 
 from PIL import Image
 
-from . import ImageLoader
-
 def pixelize(img: Image.Image, max_size: int = 160) -> Image.Image:
     """ Shrink an image so its longest side is at most `max_size` pixels  """
     w, h = img.size
@@ -14,6 +12,8 @@ def pixelize(img: Image.Image, max_size: int = 160) -> Image.Image:
     return img.resize(new_size, Image.Resampling.LANCZOS)
 
 if __name__ == "__main__":
+    import ImageLoader
+
     wide = Image.new("RGB", (1000, 500))
     tall = Image.new("RGB", (500, 1000))
     tiny = Image.new("RGB", (50, 30))
