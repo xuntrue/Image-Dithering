@@ -6,14 +6,14 @@ from PIL import Image
 from src import dither, ImageLoader, ImageAnalyser
 from src.pixelize import pixelize
 
-IMAGE_NAMES = "Mario.jpg" # None = every image in data/images/
-MAX_SIZE = 64              # longest side after pixelizing
+IMAGE_NAMES = "Yahoo.png" # None = every image in data/images/
+MAX_SIZE = 200              # longest side after pixelizing
 METHODS = ["floyd-steinberg", "atkinson", "jarvis", "sierra"]
 METHOD = "floyd-steinberg"   
-LEVELS = 2                  # Distinct brightness values
+LEVELS = 4                  # Distinct brightness values
 COLOR = True                # False = grayscale, True = dither R, G, B separately
 BAYER_SIZE = 4              # only used when METHOD == "bayer"
-UPSCALE = 2                # enlarge result so dither pixels are visible (1 = OFF)
+UPSCALE = 1                # enlarge result so dither pixels are visible (1 = OFF)
 
 SHOW_RESULTS = True
 OUTPUT_DIR = Path("output")
@@ -57,10 +57,10 @@ def main() -> None:
     if not paths:
         return
 
-    for image_path in paths:
-        print(f"Analysing {image_path.name}\n")
-        original = ImageLoader.load_image(image_path)
-        analyse_image(original)
+    #for image_path in paths:
+        #print(f"Analysing {image_path.name}\n")
+        #original = ImageLoader.load_image(image_path)
+        #analyse_image(original)
 
     # Steps 2 & 3: pixelize an RGB image, then dither it
     OUTPUT_DIR.mkdir(exist_ok=True)
@@ -73,7 +73,7 @@ def main() -> None:
         print(f"{path.name}: {original.size[0]}x{original.size[1]} -> {dithered.size[0]}x{dithered.size[1]}, saved {out_path}")
 
         if SHOW_RESULTS:
-            ImageLoader.show(original, dithered, titles=["Original", f"{METHOD} dithered"])
+            ImageLoader.show(original, dithered, titles=["Original", f"Dithered"])
 
 if __name__ == "__main__":
     main()
