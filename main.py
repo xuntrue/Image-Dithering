@@ -6,7 +6,7 @@ from PIL import Image
 from src import dither, ImageLoader, ImageAnalyser
 from src.pixelize import pixelize
 
-IMAGE_NAMES = "Yahoo.png" # None = every image in data/images/
+IMAGE_NAMES = "Sphere.jpg" # None = every image in data/images/
 MAX_SIZE = 200              # longest side after pixelizing
 METHODS = ["floyd-steinberg", "atkinson", "jarvis", "sierra"]
 METHOD = "floyd-steinberg"   
@@ -57,15 +57,17 @@ def main() -> None:
     if not paths:
         return
 
-    #for image_path in paths:
-        #print(f"Analysing {image_path.name}\n")
-        #original = ImageLoader.load_image(image_path)
-        #analyse_image(original)
-
     # Steps 2 & 3: pixelize an RGB image, then dither it
     OUTPUT_DIR.mkdir(exist_ok=True)
     for path in paths:
+        print(f"Loading {path.name}. . .\n")
         original = ImageLoader.load_image(path)
+        
+        print(f"Analyzing {path.name}. . .\n")
+        analyse_image(original)
+
+        """
+        print(f"\nDithering {path.name}. . .\n")
         dithered = dither_image(original)
 
         out_path = OUTPUT_DIR / f"{path.stem}_{METHOD}.png"
@@ -74,6 +76,6 @@ def main() -> None:
 
         if SHOW_RESULTS:
             ImageLoader.show(original, dithered, titles=["Original", f"Dithered"])
-
+        """
 if __name__ == "__main__":
     main()

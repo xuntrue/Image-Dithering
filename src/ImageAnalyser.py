@@ -98,6 +98,12 @@ def plot_analysis(*images: Image.Image, titles: list[str] | None = None) -> None
         ax.set_ylabel("% of pixels")
         ax.set_title(f"mean brightness {stats['mean_brightness']:.0f}  (dashed)", fontsize=9)
 
+        if True:  # toggle gridlines on/off
+            ax.set_axisbelow(True)    # draw gridlines behind the bars and lines
+            ax.minorticks_on()        # minor gridlines need minor ticks to exist
+            ax.grid(which="major", axis="both", linestyle="-", alpha=0.5)
+            ax.grid(which="minor", axis="both", linestyle=":", alpha=0.3)
+
     plt.tight_layout()
     plt.show()
 
@@ -117,6 +123,10 @@ def plot_colour_counts(*images: Image.Image, titles: list[str] | None = None) ->
     for bar, c in zip(bars, counts):
         ax.text(bar.get_x() + bar.get_width() / 2, c, f"{c:,}", ha="center", va="bottom", fontsize=9)
     ax.set_ylim(top=max(counts) * 3)
+    if True:  # toggle gridlines on/off
+        ax.set_axisbelow(True)
+        ax.grid(which="major", axis="y", linestyle="-", alpha=0.5)
+        ax.grid(which="minor", axis="y", linestyle=":", alpha=0.3)
     plt.tight_layout()
     plt.show()
 
