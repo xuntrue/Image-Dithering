@@ -2,6 +2,7 @@ import io
 import matplotlib.pyplot as plt
 import random
 
+from matplotlib.patches import Rectangle
 from pathlib import Path
 from PIL import Image, ImageOps
 
@@ -41,6 +42,43 @@ def show(*images: Image.Image, titles: list[str] | None = None) -> None:
                   interpolation="nearest")     # nearest keeps dither pixels crisp
         ax.set_title(titles[i] if titles else f"Image {i + 1}")
         ax.axis("off")
+    plt.tight_layout()
+    plt.show()
+  
+def show_zoom(original: Image.Image, dithered: Image.Image, region: tuple[int, int, int] | None = None, titles=("Original", "Dithered")) -> None:
+    """
+    Top row: both images with a red square. Bottom row: that square zoomed in.
+    region = (x, y, size): top-left corner and side length in pixels. None = a square in the centre. Both images must be the same size.
+    """
+    if original.size != dithered.size: # We're not interested in pixelized images
+        raise ValueError(f"Images must be the same size, got {original.size} and {dithered.size}.")
+
+    w, h = original.size
+    if region is None:
+        size = max(8, min(w, h) // 10)
+        region = ((w - size) // 2, (h - size) // 2, size)
+    x, y, size = region
+    box = (x, y, x + size, y + size)
+
+    fig, axes = plt.subplots(2, 2, figsize=(10, 10), squeeze=False)
+    for col, (img, title) in enumerate(zip((original, dithered), titles)):
+        gray = img.mode in ("L", "1")
+        kwargs = dict(cmap="gray", vmin=0, vmax=255) if gray else {}
+
+        ax = axes[0][col] # full image + red square
+        ax.imshow(img, interpolation="antialiased", **kwargs)
+        ax.add_patch(Rectangle((x - 0.5, y - 0.5), size, size,
+                               edgecolor="red", facecolor="none", linewidth=2))
+        ax.set_title(f"{title}")#({w}x{h})")
+        ax.axis("off")
+
+        ax = axes[1][col] # zoomed crop
+        ax.imshow(img.crop(box), interpolation="nearest", **kwargs)
+        #ax.set_title(f"Zoom: {size}x{size} px")
+        ax.set_xticks([]); ax.set_yticks([])
+        for spine in ax.spines.values():
+            spine.set_edgecolor("red"); spine.set_linewidth(3)
+
     plt.tight_layout()
     plt.show()
 

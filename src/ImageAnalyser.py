@@ -45,13 +45,12 @@ def describe(img: Image.Image) -> dict:
 def print_stats(*images: Image.Image, titles: list[str] | None = None) -> None:
     """ Print a comparison table of summary numbers """
     titles = titles or [f"Image {i + 1}" for i in range(len(images))]
-    print(f"{'Stage':<28}{'Size':>11}{'Colours':>11}{'Gray lvls':>11}"
-          f"{'Mean':>8}{'Std':>8}{'Min':>6}{'Max':>6}")
+    print(f"{'Stage':<28}{'Size':>11}{'Colours':>11}{'Gray lvls':>11}{'Mean':>8}{'Std':>8}{'Min':>6}{'Max':>6}")
     for img, t in zip(images, titles):
         s = describe(img)
         size = f"{s['width']}x{s['height']}"
         print(f"{t:<28}{size:>11}{s['unique_colours']:>11,}{s['unique_gray_levels']:>11}"
-              f"{s['mean_brightness']:>8.1f}{s['std_brightness']:>8.1f}"
+              f"{s['mean_brightness']:>8.2f}{s['std_brightness']:>8.2f}"
               f"{s['min_brightness']:>6}{s['max_brightness']:>6}")
 
 def plot_analysis(*images: Image.Image, titles: list[str] | None = None) -> None:
