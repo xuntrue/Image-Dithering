@@ -1,34 +1,266 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 \usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
 
-\title{My First LaTeX Report}
-\author{Your Name}
+% Highlighted placeholder for things still to write or verify
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+\title{Image Dithering: Notes}
+\author{\todo{Your name}}
 \date{\today}
 
 \begin{document}
-
 \maketitle
+\tableofcontents
+\bigskip
 
-\section{Introduction}
+% ------------------------------------------------------------------
+\section{What is Dithering?}
+\label{sec:what}
 
-This is my first LaTeX report.
+A digital image stores each pixel as a value from a limited set of
+intensities. When the display (or file format) can only represent a
+\emph{reduced} palette, every pixel must be mapped to one of the available
+values. \emph{Dithering} is the family of techniques that arranges the
+available values spatially so that, viewed from a distance, the eye
+averages neighbouring pixels and perceives intermediate tones that the
+palette cannot represent directly.
 
-LaTeX is useful for producing professional
-documents with consistent formatting.
+\subsection{Quantisation}
 
-\section{Mathematics}
+Let a single channel of an image be a function $I(x,y)\in[0,255]$.
+A quantiser with $L$ levels snaps each value to the nearest of $L$ evenly
+spaced values:
+\begin{equation}
+  \Delta = \frac{255}{L-1}, \qquad
+  q(v) = \Delta \cdot \operatorname{round}\!\left(\frac{v}{\Delta}\right).
+\end{equation}
+The \emph{quantisation error} of a pixel is $e = v - q(v)$, and always
+satisfies $|e|\le \Delta/2$. For a colour image the quantiser is applied to
+the red, green and blue channels independently, giving $L^3$ possible colours
+(Table~\ref{tab:levels}).
 
-For example, the quadratic formula is
+\begin{table}[htbp]
+  \centering
+  \caption{Palette size as a function of levels per channel $L$.}
+  \label{tab:levels}
+  \begin{tabular}{rrrr}
+    \toprule
+    $L$ & Grayscale shades & Colours ($L^3$) & Step $\Delta$ \\
+    \midrule
+    2   & 2   & 8          & 255   \\
+    3   & 3   & 27         & 127.5 \\
+    4   & 4   & 64         & 85    \\
+    6   & 6   & 216        & 51    \\
+    256 & 256 & 16,777,216 & 1     \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-\[
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-\]
+% ------------------------------------------------------------------
+\section{Historical Context}
+\label{sec:history}
 
+Early display hardware could show only a handful of colours at once. The
+IBM Colour Graphics Adapter (CGA), introduced in 1981 with the IBM PC, is the
+classic example. Its 16-colour palette is built from four on/off signals:
+red, green, blue and an intensity bit (RGBI). Sixteen colours need only
+four bits per pixel, since $2^4 = 16$.
+
+This should not be confused with ``16-bit colour'' (High Color), which uses
+16 bits per pixel and yields $2^{16} = 65{,}536$ colours
+(Table~\ref{tab:bits}).
+
+\begin{table}[htbp]
+  \centering
+  \caption{Bits per pixel versus number of distinct colours.}
+  \label{tab:bits}
+  \begin{tabular}{lrr}
+    \toprule
+    Name & Bits per pixel & Colours \\
+    \midrule
+    CGA palette          & 4  & 16         \\
+    ``16-bit'' High Color & 16 & 65,536     \\
+    24-bit True Color    & 24 & 16,777,216 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+In CGA's graphics modes, only four of the sixteen colours could be shown
+simultaneously, chosen from fixed palettes. Programmers therefore mixed
+pixel patterns to imitate the missing colours, which is a major reason
+dithering became widespread. \todo{Add references for CGA specifications.}
+
+% ------------------------------------------------------------------
+\section{Use Cases: Early Game Graphics}
+\label{sec:usecases}
+
+Console and arcade artists faced the same constraint: a small palette and low
+resolution. The Sega Mega Drive (Genesis) offered a 9-bit palette of 512
+colours, of which only a limited number could be shown at once. Artists in
+games such as \emph{Sonic the Hedgehog} used checkerboard patterns of two
+colours; on a CRT television connected by composite video, the signal
+blurred the pattern into an apparent third colour or a semi-transparent
+effect (a commonly cited example is the waterfalls of Green Hill Zone).
+\todo{Verify details and cite a source.}
+
+Dithering also served monochrome displays: Atkinson's algorithm
+(Section~\ref{sec:atkinson}) was written for the original Apple Macintosh,
+whose screen was strictly one bit per pixel.
+
+% ------------------------------------------------------------------
+\section{The Primitive Approach: Nearest Colour}
+\label{sec:nearest}
+
+The simplest strategy maps every pixel independently to the closest palette
+colour. With palette $P$ and pixel $p=(r,g,b)$,
+\begin{equation}
+  \operatorname{map}(p) = \arg\min_{c\in P}
+  \sqrt{(r-c_r)^2 + (g-c_g)^2 + (b-c_b)^2}.
+\end{equation}
+For two grayscale levels this reduces to thresholding at 128.
+
+\paragraph{Remark (choice of distance).}
+Euclidean distance is used rather than cosine similarity. Cosine similarity
+compares only the \emph{direction} of two colour vectors and ignores their
+magnitude, so $(255,0,0)$ and $(128,0,0)$ would be considered identical even
+though one is much darker.
+
+Nearest-colour mapping discards the error entirely. Smooth gradients collapse
+into flat regions with hard edges (\emph{banding} or \emph{contouring}), and
+large areas of similar tone become a single solid colour. The algorithms in
+Section~\ref{sec:algorithms} fix this by \emph{remembering} the error.
+\todo{Insert a threshold-versus-dithered comparison figure.}
+
+% ------------------------------------------------------------------
+\section{Dithering Algorithms}
+\label{sec:algorithms}
+
+\subsection{Error diffusion}
+
+All four algorithms below are \emph{error-diffusion} methods. Pixels are
+processed in scan order. For the current pixel at $(x,y)$:
+\begin{align}
+  \text{old} &= I(x,y), \qquad \text{new} = q(\text{old}), \qquad
+  e = \text{old} - \text{new}, \\
+  I(x+d_x,\,y+d_y) &\mathrel{+}= \frac{w}{D}\, e
+  \quad \text{for each } (d_x,d_y,w) \text{ in the kernel.}
+\end{align}
+The kernel lists which not-yet-processed neighbours receive a share of the
+error, with integer weights $w$ and a divisor $D$. In the matrices below,
+$\ast$ marks the current pixel and $\cdot$ marks pixels that are never
+modified.
+
+Our implementation uses \emph{serpentine} scanning: the scan direction
+alternates every row (and the kernel is mirrored accordingly), which avoids
+the diagonal ``worm'' artefacts of always scanning left to right.
+
+\subsection{Floyd--Steinberg}
+\label{sec:fs}
+
+Published by Floyd and Steinberg in 1976, this is the most widely used
+algorithm. It spreads the full error over four neighbours:
+\begin{equation}
+  \frac{1}{16}
+  \begin{pmatrix}
+    \cdot & \ast & 7 \\
+    3 & 5 & 1
+  \end{pmatrix}
+\end{equation}
+
+\subsection{Atkinson}
+\label{sec:atkinson}
+
+Developed by Bill Atkinson at Apple for the original Macintosh, this kernel
+spreads the error over six neighbours but divides by 8, so only
+$6/8 = 75\%$ of the error is propagated:
+\begin{equation}
+  \frac{1}{8}
+  \begin{pmatrix}
+    \cdot & \ast & 1 & 1 \\
+    1 & 1 & 1 & \cdot \\
+    \cdot & 1 & \cdot & \cdot
+  \end{pmatrix}
+\end{equation}
+Discarding a quarter of the error gives higher contrast: highlights and
+shadows tend to saturate to pure white and black, while mid-tones keep
+crisp, less noisy detail.
+
+\subsection{Jarvis--Judice--Ninke}
+\label{sec:jarvis}
+
+This kernel spreads the error over twelve neighbours across three rows:
+\begin{equation}
+  \frac{1}{48}
+  \begin{pmatrix}
+    \cdot & \cdot & \ast & 7 & 5 \\
+    3 & 5 & 7 & 5 & 3 \\
+    1 & 3 & 5 & 3 & 1
+  \end{pmatrix}
+\end{equation}
+The wider spread produces smoother results with finer texture, at the cost of
+more computation per pixel.
+
+\subsection{Sierra}
+\label{sec:sierra}
+
+The three-row Sierra kernel is a lighter relative of Jarvis--Judice--Ninke,
+using ten neighbours and a power-of-two divisor:
+\begin{equation}
+  \frac{1}{32}
+  \begin{pmatrix}
+    \cdot & \cdot & \ast & 5 & 3 \\
+    2 & 4 & 5 & 4 & 2 \\
+    \cdot & 2 & 3 & 2 & \cdot
+  \end{pmatrix}
+\end{equation}
+
+\subsection{Comparison}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Summary of the error-diffusion kernels used.}
+  \label{tab:kernels}
+  \begin{tabular}{lrrr}
+    \toprule
+    Algorithm & Neighbours & Divisor $D$ & Error propagated \\
+    \midrule
+    Floyd--Steinberg        & 4  & 16 & 100\% \\
+    Atkinson                & 6  & 8  & 75\%  \\
+    Jarvis--Judice--Ninke   & 12 & 48 & 100\% \\
+    Sierra                  & 10 & 32 & 100\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\todo{Verify publication years and add references for each algorithm.}
+\todo{Add side-by-side result figures for the same source image.}
+
+% ------------------------------------------------------------------
 \section{Conclusion}
+\label{sec:conclusion}
 
-The report is ready to compile into a PDF.
+\todo{Summarise your findings. Observations from the analysis tool that may
+be worth confirming on real images: (1) a dithered image's histogram collapses
+onto $L$ values per channel, yet it still looks smooth because the tone is
+carried by the \emph{density} of the dots; (2) error diffusion preserves the
+mean brightness almost exactly; (3) pixelising before dithering makes the
+pattern visible and keeps computation fast.}
+
+% ------------------------------------------------------------------
+\appendix
+\section{Dithered Image Gallery}
+\label{app:gallery}
+
+\IfFileExists{appendix_gallery.tex}{\input{appendix_gallery.tex}}{%
+  \todo{Run \texttt{generate\_gallery.py} to create \texttt{appendix\_gallery.tex}.}}
 
 \end{document}
