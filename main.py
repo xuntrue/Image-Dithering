@@ -6,10 +6,10 @@ from PIL import Image
 from src import dither, ImageLoader, ImageAnalyser
 from src.pixelize import pixelize
 
-IMAGE_NAMES = "Sphere.jpg" # None = every image in data/images/
-MAX_SIZE = 200              # longest side after pixelizing
+IMAGE_NAMES = "Golden-Retriever.jpeg" # None = every image in data/images/
+MAX_SIZE = 10000              # longest side after pixelizing
 METHODS = ["floyd-steinberg", "atkinson", "jarvis", "sierra"]
-METHOD = "floyd-steinberg"   
+METHOD = "jarvis"
 LEVELS = 4                  # Distinct brightness values
 COLOR = True                # False = grayscale, True = dither R, G, B separately
 BAYER_SIZE = 4              # only used when METHOD == "bayer"
@@ -39,16 +39,19 @@ def dither_image(img: Image.Image) -> Image.Image:
         out = out.resize((out.width * UPSCALE, out.height * UPSCALE), Image.Resampling.NEAREST)
     return out
 
+def print_stats(*images: Image.Image):
+    ImageAnalyser.print_stats(*images)
+
 def analyse_image(img: Image.Image):
     original = img
-    small = pixelize(original, 160)
+    small = pixelize(original, MAX_SIZE)
     gray_small = small.convert("L").convert("RGB")
 
-    bw = Image.fromarray(dither.apply(np.asarray(gray_small), "floyd-steinberg", 2)).convert("L")
-    colour = Image.fromarray(dither.apply(np.asarray(small), "floyd-steinberg", 2))
+    bw = Image.fromarray(dither.apply(np.asarray(gray_small), METHOD, LEVELS)).convert("L")
+    colour = Image.fromarray(dither.apply(np.asarray(small), METHOD, LEVELS))
 
     stages = [original, small, bw, colour]
-    names = ["Original", "Pixelized (160px)", "Dithered B/W (2 levels)", "Dithered colour (2 levels)"]
+    names = ["Original", f"Pixelized ({MAX_SIZE}px)", f"Dithered B/W ({LEVELS} levels)", f"Dithered colour ({LEVELS} levels)"]
     ImageAnalyser.compare(*stages, titles=names)
 
 def main() -> None:
@@ -63,19 +66,17 @@ def main() -> None:
         print(f"Loading {path.name}. . .\n")
         original = ImageLoader.load_image(path)
         
-        print(f"Analyzing {path.name}. . .\n")
-        analyse_image(original)
-
-        """
         print(f"\nDithering {path.name}. . .\n")
         dithered = dither_image(original)
 
-        out_path = OUTPUT_DIR / f"{path.stem}_{METHOD}.png"
-        dithered.save(out_path)
-        print(f"{path.name}: {original.size[0]}x{original.size[1]} -> {dithered.size[0]}x{dithered.size[1]}, saved {out_path}")
+        if False:
+            out_path = OUTPUT_DIR / f"{path.stem}_{METHOD}.png"
+            dithered.save(out_path)
+            print(f"{path.name}: {original.size[0]}x{original.size[1]} -> {dithered.size[0]}x{dithered.size[1]}, saved {out_path}")
 
         if SHOW_RESULTS:
             ImageLoader.show(original, dithered, titles=["Original", f"Dithered"])
-        """
+            #ImageLoader.show_zoom(original, dithered, region=(800, 600, 200), titles=["Original", f"Dithered"])
+
 if __name__ == "__main__":
     main()
