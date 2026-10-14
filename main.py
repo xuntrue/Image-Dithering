@@ -6,11 +6,11 @@ from PIL import Image
 from src import dither, ImageLoader, ImageAnalyser
 from src.pixelize import pixelize
 
-IMAGE_NAMES = "Golden-Retriever.jpeg" # None = every image in data/images/
-MAX_SIZE = 10000              # longest side after pixelizing
+IMAGE_NAMES = "Eagle.jpg" # None = every image in data/images/
+MAX_SIZE = 1200              # longest side after pixelizing
 METHODS = ["floyd-steinberg", "atkinson", "jarvis", "sierra"]
-METHOD = "jarvis"
-LEVELS = 4                  # Distinct brightness values
+METHOD = "sierra"
+LEVELS = 3                  # Distinct brightness values
 COLOR = True                # False = grayscale, True = dither R, G, B separately
 BAYER_SIZE = 4              # only used when METHOD == "bayer"
 UPSCALE = 1                # enlarge result so dither pixels are visible (1 = OFF)
@@ -75,7 +75,10 @@ def main() -> None:
             print(f"{path.name}: {original.size[0]}x{original.size[1]} -> {dithered.size[0]}x{dithered.size[1]}, saved {out_path}")
 
         if SHOW_RESULTS:
-            ImageLoader.show(original, dithered, titles=["Original", f"Dithered"])
+            ImageLoader.show(original, dithered,
+                             titles=[f"Original ({original.size[0]}x{original.size[1]})", f"Sierra Dithered ({dithered.size[0]}x{dithered.size[1]})"],
+                             caption=None#f"MAX_SIZE={MAX_SIZE} LEVELS={LEVELS}"
+                             )
             #ImageLoader.show_zoom(original, dithered, region=(800, 600, 200), titles=["Original", f"Dithered"])
 
 if __name__ == "__main__":

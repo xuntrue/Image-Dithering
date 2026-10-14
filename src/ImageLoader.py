@@ -1,6 +1,7 @@
 import io
 import matplotlib.pyplot as plt
 import random
+import textwrap
 
 from matplotlib.patches import Rectangle
 from pathlib import Path
@@ -34,7 +35,7 @@ def load_image(path: Path | str, svg_width: int = 1024) -> Image.Image:
 
     return _to_rgb(img)
 
-def show(*images: Image.Image, titles: list[str] | None = None) -> None:
+def show(*images: Image.Image, titles: list[str] | None = None, caption: str | None = None) -> None:
     """Display one or more images side by side with matplotlib """
     fig, axes = plt.subplots(1, len(images), figsize=(5 * len(images), 5), squeeze=False)
     for i, (ax, img) in enumerate(zip(axes[0], images)):
@@ -42,7 +43,15 @@ def show(*images: Image.Image, titles: list[str] | None = None) -> None:
                   interpolation="nearest")     # nearest keeps dither pixels crisp
         ax.set_title(titles[i] if titles else f"Image {i + 1}")
         ax.axis("off")
-    plt.tight_layout()
+    
+    if caption:
+        wrapped = textwrap.fill(caption, width=60 * len(images))   # wrap long captions
+        fig.text(0.5, 0.02, wrapped, ha="center", va="bottom", fontsize=10, style="italic")
+        n_lines = wrapped.count("\n") + 1
+        plt.tight_layout(rect=(0, 0.04 * n_lines + 0.02, 1, 1))    # leave room at the bottom
+    else:
+        plt.tight_layout()
+    
     plt.show()
   
 def show_zoom(original: Image.Image, dithered: Image.Image, region: tuple[int, int, int] | None = None, titles=("Original", "Dithered")) -> None:
