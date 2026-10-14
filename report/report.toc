@@ -1,15 +1,16 @@
 \contentsline {section}{\numberline {1}What is Dithering?}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Quantisation}{2}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Historical Context}{3}{section.2}%
-\contentsline {section}{\numberline {3}Use Cases: Early Game Graphics}{3}{section.3}%
-\contentsline {section}{\numberline {4}The Primitive Approach: Nearest Colour}{3}{section.4}%
-\contentsline {paragraph}{Remark (choice of distance).}{4}{section*.8}%
+\contentsline {subsection}{\numberline {1.2}Dithering}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Historical Context}{4}{section.2}%
+\contentsline {section}{\numberline {3}Use Cases: Early Game Graphics}{4}{section.3}%
+\contentsline {section}{\numberline {4}The Primitive Approach: Nearest Colour}{4}{section.4}%
+\contentsline {paragraph}{Remark (choice of distance).}{4}{section*.9}%
 \contentsline {section}{\numberline {5}Dithering Algorithms}{4}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Error diffusion}{4}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Floyd--Steinberg}{4}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.1}Error diffusion}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Floyd--Steinberg}{5}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Atkinson}{5}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Jarvis--Judice--Ninke}{5}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Sierra}{5}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Comparison}{5}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Conclusion}{5}{section.6}%
-\contentsline {section}{\numberline {A}Dithered Image Gallery}{5}{appendix.A}%
+\contentsline {subsection}{\numberline {5.4}Jarvis--Judice--Ninke}{6}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Sierra}{6}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Comparison}{6}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Conclusion}{6}{section.6}%
+\contentsline {section}{\numberline {A}Dithered Image Gallery}{6}{appendix.A}%

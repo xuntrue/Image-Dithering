@@ -34,41 +34,21 @@ every pixel must be mapped to one of the available values. This is known as \emp
 
 \begin{figure}[htbp]
   \centering
-  \begin{subfigure}{0.48\textwidth}
-    \includegraphics[width=\linewidth]{../data/images/Golden-Retriever.jpeg}
-    \caption{Original}
-  \end{subfigure}\hfill
-  \begin{subfigure}{0.48\textwidth}
-    \includegraphics[width=\linewidth]{../output/Figure_1_1.png}
-    \caption{Dithered}
-  \end{subfigure}
-  \caption{Original versus dithered}
-\end{figure}
-
-\emph{Dithering} is the family of techniques that arranges the
-available values spatially so that, viewed from a distance, the eye
-averages neighbouring pixels and perceives intermediate tones that the
-palette cannot represent directly. Dither is routinely used in processing of both
-digital audio and visual data, and is a key technique in computer graphics.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\textwidth]{../output/Figure_1_2.png}
-  \caption{Dithering of the Mona Lisa. The original image (left) is quantised to 2 levels per channel and then dithered (right).}
+  \includegraphics[width=0.9\textwidth]{../output/Figure_1_1.png}
+  \caption{Quantisation of a continuous wave. The original signal (blue) is quantised to 2 bits = 4 levels (red).}
   \label{fig:quant-example}
 \end{figure}
 
-\newpage
 
-Let a single channel of an image be a function $I(x,y)\in[0,255]$.
+If we look at images, let a single channel of an image be a function $I(x,y)\in[0,255]$.
 A quantiser with $L$ levels snaps each value to the nearest of $L$ evenly
 spaced values:
 \begin{equation}
   \Delta = \frac{255}{L-1}, \qquad
   q(v) = \Delta \cdot \operatorname{round}\!\left(\frac{v}{\Delta}\right).
 \end{equation}
-The \emph{quantisation error} of a pixel is $e = v - q(v)$, and always
-satisfies $|e|\le \Delta/2$. For a colour image the quantiser is applied to
+The difference between an input value and its quantized value is called the \emph{quantisation error},
+denoted by $e = v - q(v)$, and always satisfies $|e|\le \Delta/2$. For a colour image the quantiser is applied to
 the red, green and blue channels independently, giving $L^3$ possible colours
 (Table~\ref{tab:levels}).
 
@@ -88,6 +68,48 @@ the red, green and blue channels independently, giving $L^3$ possible colours
     \bottomrule
   \end{tabular}
 \end{table}
+
+As $L$ increase, the quantisation error decreases hence the amount of information lost decreases.
+However, the number of colours grows cubically with $L$,
+so any small increase in $L$ can drastically increase a file size.
+
+\newpage
+
+\subsection{Dithering}
+
+\emph{Dithering} is the family of techniques that arranges the available values spatially
+so that, viewed from a distance, the eye averages neighbouring pixels
+and perceives intermediate tones that the palette cannot represent directly.
+In short, dithering trades spatial resolution for tonal resolution.
+Instead of mapping each pixel independently to the nearest palette colour, dithering
+\emph{remembers} the quantisation error and distributes it to neighbouring pixels, such that
+the average tone is preserved. The result is a more faithful reproduction of the original image.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width=\linewidth]{../data/images/Golden-Retriever.jpeg}
+    \caption{Original}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width=\linewidth]{../output/Figure_1_2.png}
+    \caption{Dithered}
+  \end{subfigure}
+  \caption{Original versus dithered}
+\end{figure}
+
+Dither is routinely used in processing of both digital audio and visual data,
+and is a key technique in computer graphics. We'll focus on the visual case,
+where dithering is used to reduce the number of colours in an image.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../output/Figure_1_3.png}
+  \caption{Dithering of the Mona Lisa. The original image (left) is quantised to 2 levels per channel and then dithered (right).}
+  \label{fig:dither-example}
+\end{figure}
+
+\newpage
 
 % ------------------------------------------------------------------
 \section{Historical Context}
