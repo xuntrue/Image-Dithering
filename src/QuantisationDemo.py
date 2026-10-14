@@ -70,7 +70,7 @@ def show_quantisation(levels: int = 8, num_samples: int = 32, cycles: float = 2.
                label=f"+/- step/2 = {step / 2:.3f}")
     ax.axhline(-step / 2, color="gray", linestyle="--", linewidth=1)
     ax.set_ylim(0, step * 0.75)
-    ax.set_title(f"4. Quantisation error (original - quantised), RMS = {rms:.3f}")
+    #ax.set_title(f"3. Quantisation error (original - quantised), RMS = {rms:.3f}")
     ax.set_ylabel("Absolute Error")
     ax.set_xlabel("Time")
     ax.legend(loc="upper right", fontsize=8)
@@ -90,5 +90,5 @@ def show_quantisation(levels: int = 8, num_samples: int = 32, cycles: float = 2.
 
 if __name__ == "__main__":
     bits = 2
-    levels = 2**bits + 1
-    show_quantisation(levels=levels, num_samples=16+1)
+    levels = 2**bits
+    show_quantisation(levels=levels, num_samples=4)
