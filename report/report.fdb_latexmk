@@ -1,8 +1,13 @@
 # Fdb version 4
-["pdflatex"] 1791952685.23607 "c:/Users/xuntr/Image-Dithering/report/report.tex" "report.pdf" "report" 1791952692.29895 0
+["pdflatex"] 1791957965.21504 "c:/Users/xuntr/Image-Dithering/report/report.tex" "report.pdf" "report" 1791957970.28138 0
+  "../data/images/Eagle.jpg" 1791856897 132972 3d44977eec26f2dbe22e8ac531d72749 ""
   "../data/images/Golden-Retriever.jpeg" 1791856897 25972 5f36fb3a2dbd3514c8392976c5ba4988 ""
   "../output/Figure_1_1.png" 1791946837 149409 363e87d9f0825cb396b2a16f105ebae2 ""
   "../output/Figure_1_2.png" 1791868298 413333 00866668151c59df027a8bf2e5c58d82 ""
+  "../output/Figure_5_2.png" 1791957636 537506 24719c978b461061b14aad8d1980e7ad ""
+  "../output/Figure_5_3.png" 1791957636 548768 fdcc55644973ec76939c527a8de95e7f ""
+  "../output/Figure_5_4.png" 1791957636 596191 5e3aadd3ee42a1b2a3616cc589edd9fa ""
+  "../output/Figure_5_5.png" 1791957636 601896 e6a897c1056d1afb931c6e927e1ec0c3 ""
   "C:/Users/xuntr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1791862680 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/xuntr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1791857868 13333488 c74028c8cdb1b294c5df8fc44bbbb504 ""
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -191,11 +196,11 @@
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/xuntr/Image-Dithering/report/report.tex" 1791952682 13853 57d17744d93a352caf296611a3aca93c ""
-  "report.aux" 1791952691 6580 3cd355b025e55a4847d3ef36a2fac602 "pdflatex"
-  "report.out" 1791952691 1965 88be37ce2a91a6f3e0b6282cdc99691f "pdflatex"
-  "report.tex" 1791952682 13853 57d17744d93a352caf296611a3aca93c ""
-  "report.toc" 1791952691 1171 9c0a8bf12affcce7252c053537d1a2ba "pdflatex"
+  "c:/Users/xuntr/Image-Dithering/report/report.tex" 1791957955 15163 7c771222c25d8e63ce1322104e010a6e ""
+  "report.aux" 1791957969 6760 a4cef68e4d4e8940bc42944c17606a58 "pdflatex"
+  "report.out" 1791957969 1965 88be37ce2a91a6f3e0b6282cdc99691f "pdflatex"
+  "report.tex" 1791957955 15163 7c771222c25d8e63ce1322104e010a6e ""
+  "report.toc" 1791957969 1171 92c0c44c8bf003e203943a780a3fad73 "pdflatex"
   (generated)
   "report.aux"
   "report.log"
