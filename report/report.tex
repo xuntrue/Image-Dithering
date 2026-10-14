@@ -35,7 +35,7 @@ every pixel must be mapped to one of the available values. This is known as \emp
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.9\textwidth]{../output/Figure_1_1.png}
-  \caption{Quantisation of a continuous wave. The original signal (blue) is quantised to 2 bits = 4 levels (red).}
+  \caption{Quantisation of a continuous wave. The original signal (blue) quantised to 2 bits = 4 levels (red).}
   \label{fig:quant-example}
 \end{figure}
 
@@ -72,6 +72,7 @@ the red, green and blue channels independently, giving $L^3$ possible colours
 As $L$ increase, the quantisation error decreases hence the amount of information lost decreases.
 However, the number of colours grows cubically with $L$,
 so any small increase in $L$ can drastically increase a file size.
+This is why many image formats use a small palette of colours, and why dithering is important.
 
 \newpage
 
@@ -83,15 +84,15 @@ and perceives intermediate tones that the palette cannot represent directly.
 In short, dithering trades spatial resolution for tonal resolution.
 Instead of mapping each pixel independently to the nearest palette colour, dithering
 \emph{remembers} the quantisation error and distributes it to neighbouring pixels, such that
-the average tone is preserved. The result is a more faithful reproduction of the original image.
+the average tone is preserved.
 
 \begin{figure}[htbp]
   \centering
-  \begin{subfigure}{0.48\textwidth}
+  \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{../data/images/Golden-Retriever.jpeg}
     \caption{Original}
-  \end{subfigure}\hfill
-  \begin{subfigure}{0.48\textwidth}
+  \end{subfigure}
+  \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{../output/Figure_1_2.png}
     \caption{Dithered}
   \end{subfigure}
@@ -99,13 +100,15 @@ the average tone is preserved. The result is a more faithful reproduction of the
 \end{figure}
 
 Dither is routinely used in processing of both digital audio and visual data,
-and is a key technique in computer graphics. We'll focus on the visual case,
-where dithering is used to reduce the number of colours in an image.
+and is a key technique in computer graphics.
+The result is almost always a more faithful reproduction of the original image.
+We'll focus on the visual case, where dithering is used to reduce the number of colours in an image.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.9\textwidth]{../output/Figure_1_3.png}
-  \caption{Dithering of the Mona Lisa. The original image (left) is quantised to 2 levels per channel and then dithered (right).}
+  \includegraphics[width=0.70\textwidth]{../output/Figure_1_3.png}
+  \caption{Dithering of the Mona Lisa. The original image (left)
+  is quantised to 2 levels per channel and then dithered (right).}
   \label{fig:dither-example}
 \end{figure}
 
@@ -115,14 +118,29 @@ where dithering is used to reduce the number of colours in an image.
 \section{Historical Context}
 \label{sec:history}
 
-Early display hardware could show only a handful of colours at once. The
-IBM Colour Graphics Adapter (CGA), introduced in 1981 with the IBM PC, is the
-classic example. Its 16-colour palette is built from four on/off signals:
+Early display hardware could show only a handful of colours at once.
+The IBM Colour Graphics Adapter (CGA), introduced in 1981 with the IBM PC, is the classic example.
+This was the first monitors in the market to display color.
+Image resolution was low, and the palette was limited to 16 colours.
+Its 16-colour palette is built from four on/off signals:
 red, green, blue and an intensity bit (RGBI). Sixteen colours need only
 four bits per pixel, since $2^4 = 16$.
 
-This should not be confused with ``16-bit colour'' (High Color), which uses
-16 bits per pixel and yields $2^{16} = 65{,}536$ colours
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.58\textwidth}
+    \includegraphics[width=\linewidth]{../data/images/IBM-Color-Graphics-Adapter.jpg}
+    \caption{IBM CGA card}
+  \end{subfigure}
+  \begin{subfigure}{0.36\textwidth}
+    \includegraphics[width=\linewidth]{../data/images/IBM-5153-Color.png}
+    \caption{16 colour palette on a CGA monitor}
+  \end{subfigure}
+  \caption{The IBM Colour Graphics Adapter (CGA) and its 16-colour palette.}
+\end{figure}
+
+This should not be confused with ``16-bit colour'' (High Color) used in modern systems,
+which uses 16 bits per pixel and yields $2^{16} = 65{,}536$ colours
 (Table~\ref{tab:bits}).
 
 \begin{table}[htbp]
@@ -140,10 +158,28 @@ This should not be confused with ``16-bit colour'' (High Color), which uses
   \end{tabular}
 \end{table}
 
-In CGA's graphics modes, only four of the sixteen colours could be shown
-simultaneously, chosen from fixed palettes. Programmers therefore mixed
-pixel patterns to imitate the missing colours, which is a major reason
-dithering became widespread. \todo{Add references for CGA specifications.}
+CGA offered several video modes, each with a different resolution and palette size
+suited to different applications with different memory constraints:
+\begin{itemize}
+  \item a 160x100 mode with 16 colours
+  \item a 320x200 mode with 4 colours
+  \item a 640x200 mode with 2 colours
+\end{itemize}
+
+%PakuPaku in 160x100 16 color mode
+%PCPaint in 320 × 200 3rd palette low intensity, showing a typical low-resolution interface.
+%Note the use of dithering to overcome the CGA palette limitations.
+%SimCity in 640 × 200 monochrome.
+%Note the use of dithering to simulate gray tones and a non-square pixel ratio that deforms the fonts.
+
+For some programs, they were small enough to make use of the 16-colour mode.
+But the limited palette for programs with a larger resolution was a problem.
+Programmers therefore mixed pixel patterns to imitate the missing colours,
+which is a major reason dithering became widespread.
+In the 1980s, dithering was used in many games and graphics programs to
+simulate more colours than the hardware could display.
+
+\newpage
 
 % ------------------------------------------------------------------
 \section{Use Cases: Early Game Graphics}
@@ -161,6 +197,8 @@ effect (a commonly cited example is the waterfalls of Green Hill Zone).
 Dithering also served monochrome displays: Atkinson's algorithm
 (Section~\ref{sec:atkinson}) was written for the original Apple Macintosh,
 whose screen was strictly one bit per pixel.
+
+\newpage
 
 % ------------------------------------------------------------------
 \section{The Primitive Approach: Nearest Colour}
@@ -185,6 +223,8 @@ into flat regions with hard edges (\emph{banding} or \emph{contouring}), and
 large areas of similar tone become a single solid colour. The algorithms in
 Section~\ref{sec:algorithms} fix this by \emph{remembering} the error.
 \todo{Insert a threshold-versus-dithered comparison figure.}
+
+\newpage
 
 % ------------------------------------------------------------------
 \section{Dithering Algorithms}
@@ -338,6 +378,7 @@ pattern visible and keeps computation fast.}
 %\references
 %https://en.wikipedia.org/wiki/Quantization_(signal_processing)
 %https://en.wikipedia.org/wiki/Dither
+%https://en.wikipedia.org/wiki/Color_Graphics_Adapter
 
 % ------------------------------------------------------------------
 \appendix
