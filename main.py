@@ -69,7 +69,7 @@ def main() -> None:
         print(f"\nDithering {path.name}. . .\n")
         dithered = dither_image(original)
 
-        if False:
+        if True:
             out_path = OUTPUT_DIR / f"{path.stem}_{METHOD}.png"
             dithered.save(out_path)
             print(f"{path.name}: {original.size[0]}x{original.size[1]} -> {dithered.size[0]}x{dithered.size[1]}, saved {out_path}")
