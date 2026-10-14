@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.13)  13 OCT 2026 12:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.13)  14 OCT 2026 10:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -666,85 +666,96 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [1
 
 {C:/Users/xuntr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 100.
- [2{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
-Overfull \hbox (6.69275pt too wide) in paragraph at lines 141--141
+<output/Figure_1.png, id=91, 722.7pt x 361.35pt>
+File: output/Figure_1.png Graphic file (type png)
+<use output/Figure_1.png>
+Package pdftex.def Info: output/Figure_1.png  used on input line 39.
+(pdftex.def)             Requested size: 364.19667pt x 182.0971pt.
+<output/Figure_2.png, id=93, 925.056pt x 442.2924pt>
+File: output/Figure_2.png Graphic file (type png)
+<use output/Figure_2.png>
+Package pdftex.def Info: output/Figure_2.png  used on input line 47.
+(pdftex.def)             Requested size: 364.19667pt x 174.1333pt.
+ [2{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./output/Figure_1.png> <./output/Figure_2.png>]
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 114.
+ [3]
+Overfull \hbox (6.69275pt too wide) in paragraph at lines 155--155
 \T1/lmr/m/n/10.95 threshold- 
  []
 
 
-Overfull \hbox (6.69275pt too wide) in paragraph at lines 141--141
+Overfull \hbox (6.69275pt too wide) in paragraph at lines 155--155
 \T1/lmr/m/n/10.95 threshold- 
  []
 
-[3]
+[4]
 
-LaTeX Warning: Marginpar on page 4 moved.
+LaTeX Warning: Marginpar on page 5 moved.
 
 
-Overfull \hbox (10.95029pt too wide) in paragraph at lines 256--256
+Overfull \hbox (10.95029pt too wide) in paragraph at lines 270--270
 [][][]\T1/lmr/m/n/10.95 Summarise 
  []
 
 
-Overfull \hbox (10.95029pt too wide) in paragraph at lines 256--256
+Overfull \hbox (10.95029pt too wide) in paragraph at lines 270--270
 [][][]\T1/lmr/m/n/10.95 Summarise 
  []
 
 
-LaTeX Warning: Marginpar on page 4 moved.
+LaTeX Warning: Marginpar on page 5 moved.
 
 
-Overfull \hbox (20.55371pt too wide) in paragraph at lines 267--303
+Overfull \hbox (20.55371pt too wide) in paragraph at lines 281--317
  [][] 
  []
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 306.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 320.
 (C:\Users\xuntr\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (67.76917pt too wide) in paragraph at lines 306--306
+Overfull \hbox (67.76917pt too wide) in paragraph at lines 320--320
 \T1/lmtt/m/n/10.95 generate_gallery.py 
  []
 
 
-Overfull \hbox (76.55954pt too wide) in paragraph at lines 306--306
+Overfull \hbox (76.55954pt too wide) in paragraph at lines 320--320
 \T1/lmtt/m/n/10.95 appendix_gallery.tex\T1/lmr/m/n/10.95 .[]  
  []
 
 
-Overfull \hbox (67.76917pt too wide) in paragraph at lines 306--306
+Overfull \hbox (67.76917pt too wide) in paragraph at lines 320--320
 \T1/lmtt/m/n/10.95 generate_gallery.py 
  []
 
 
-Overfull \hbox (76.55954pt too wide) in paragraph at lines 306--306
+Overfull \hbox (76.55954pt too wide) in paragraph at lines 320--320
 \T1/lmtt/m/n/10.95 appendix_gallery.tex\T1/lmr/m/n/10.95 .[]  
  []
 
 
-LaTeX Warning: Marginpar on page 4 moved.
+LaTeX Warning: Marginpar on page 5 moved.
 
-[4] [5] (report.aux)
+[5] [6] (report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 88BE37CE2A91A6F3E0B6282CDC99691F;1965.
+(rerunfilecheck)             Checksum: 139AA52985F3CC769B96B6AC410BDC48;2083.
  ) 
 Here is how much of TeX's memory you used:
- 23288 strings out of 467871
- 433944 string characters out of 5418375
- 854953 words of memory out of 5000000
- 51729 multiletter control sequences out of 15000+600000
+ 23313 strings out of 467871
+ 434504 string characters out of 5418375
+ 849073 words of memory out of 5000000
+ 51750 multiletter control sequences out of 15000+600000
  679617 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,10n,108p,566b,947s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (5 pages, 252795 bytes).
+Output written on report.pdf (6 pages, 1345509 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 220 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 

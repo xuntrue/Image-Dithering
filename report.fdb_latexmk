@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1791866261.96464 "c:/Users/xuntr/Image-Dithering/report.tex" "report.pdf" "report" 1791866269.06307 0
+["pdflatex"] 1791946418.18813 "c:/Users/xuntr/Image-Dithering/report.tex" "report.pdf" "report" 1791946436.71024 0
   "C:/Users/xuntr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1791862680 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/xuntr/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1791857868 13333488 c74028c8cdb1b294c5df8fc44bbbb504 ""
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -179,11 +179,13 @@
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/xuntr/Image-Dithering/report.tex" 1791866257 12714 b49654fc145472977d24688de9c5a834 ""
-  "report.aux" 1791866267 6022 56bbe10335898be8d4eb019df17b834b "pdflatex"
-  "report.out" 1791866267 1965 88be37ce2a91a6f3e0b6282cdc99691f "pdflatex"
-  "report.tex" 1791866257 12714 b49654fc145472977d24688de9c5a834 ""
-  "report.toc" 1791866267 1171 0753416e12198109ba9dae2493da85c3 "pdflatex"
+  "c:/Users/xuntr/Image-Dithering/report.tex" 1791946391 13099 d75c6179605b23e5fee07304e128f336 ""
+  "output/Figure_1.png" 1791868298 512970 a3f595f72deda88852394d4ea9070a21 ""
+  "output/Figure_2.png" 1791868298 413333 00866668151c59df027a8bf2e5c58d82 ""
+  "report.aux" 1791946434 6599 42410052fd61c1f6a84786d07b5bfd43 "pdflatex"
+  "report.out" 1791946434 2083 139aa52985f3cc769b96b6ac410bdc48 "pdflatex"
+  "report.tex" 1791946391 13099 d75c6179605b23e5fee07304e128f336 ""
+  "report.toc" 1791946434 1249 334dcfdbcf7ce7f87868b9f090f091f6 "pdflatex"
   (generated)
   "report.aux"
   "report.log"
