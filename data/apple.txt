@@ -1,0 +1,5 @@
+Stage                              Size    Colours  Gray lvls    Mean     Std   Min   Max
+Original                      2040x2245    538,569        249  156.37   85.12     7   255
+Colour (10 levels)            2040x2245        260        160  156.16   85.51     0   255
+Colour (5 levels)             2040x2245         49         43  155.80   86.60     0   255
+Colour (2 levels)             2040x2245          6          6  147.83   99.63     0   255

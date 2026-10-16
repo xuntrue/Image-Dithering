@@ -6,7 +6,7 @@ from PIL import Image
 from src import dither, ImageLoader, ImageAnalyser
 from src.pixelize import pixelize
 
-IMAGE_NAMES = "Mona-Lisa.jpg" # None = every image in data/images/
+IMAGE_NAMES = "Rock.png" # None = every image in data/images/
 MAX_SIZE = 10_000              # longest side after pixelizing
 METHODS = ["floyd-steinberg", "atkinson", "jarvis", "sierra"]
 METHOD = "floyd-steinberg"
@@ -81,7 +81,7 @@ def main() -> None:
                              caption=None#f"MAX_SIZE={MAX_SIZE} LEVELS={LEVELS}"
                              )
             """
-            ImageLoader.show_zoom(original, dithered, region=(900, 650, 100), titles=["Original", f"Dithered"])
+            ImageLoader.show_zoom(original, dithered, region=(300, 450, 50), titles=["Original", f"Dithered"])
 
 if __name__ == "__main__":
     main()
