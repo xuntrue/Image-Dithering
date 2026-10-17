@@ -48,7 +48,6 @@ def ordered(arr: np.ndarray, levels: int = 2, size: int = 4) -> np.ndarray:
     step = 255.0 / (levels - 1)
     return _quantize(arr.astype(np.float32) + tiled * step, levels).astype(np.uint8)
 
-
 def error_diffusion(arr: np.ndarray, kernel: str = "floyd-steinberg",
                     levels: int = 2, serpentine: bool = True) -> np.ndarray:
     """ Error-diffusion dithering: push each pixel's rounding error onto neighbours.

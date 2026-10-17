@@ -1,5 +1,6 @@
 import io
 import matplotlib.pyplot as plt
+import numpy as np
 import random
 import textwrap
 
@@ -7,8 +8,12 @@ from matplotlib.patches import Rectangle
 from pathlib import Path
 from PIL import Image, ImageOps
 
+import dither
+
 SUPPORTED_EXTENSIONS = {".png", ".jpg", ".jpeg"}
 DEFAULT_IMAGE_DIR = Path(__file__).resolve().parent.parent / "data" / "images"
+
+MAX_ANNOTATED_SIZE = 32   # largest width/height show_intensities will annotate
 
 def list_images(directory: Path | str = DEFAULT_IMAGE_DIR) -> list[Path]:
     """ Return every supported image file in `directory`, sorted by name """
@@ -34,6 +39,57 @@ def load_image(path: Path | str, svg_width: int = 1024) -> Image.Image:
     img = ImageOps.exif_transpose(img) # respect phone-camera rotation
 
     return _to_rgb(img)
+
+def generate_gradient(low: int = 0, high: int = 255, width: int = 12, height: int = 6) -> Image.Image:
+    """ Generate a grayscale gradient from `low` (left edge) to `high` (right edge) """
+    if width < 1 or height < 1:
+        raise ValueError("width and height must be at least 1")
+    if not (0 <= low <= 255 and 0 <= high <= 255):
+        raise ValueError("low and high must be between 0 and 255")
+    row = np.round(np.linspace(low, high, width))
+    return Image.fromarray(np.tile(row, (height, 1)).astype(np.uint8))
+
+def show_intensities(*images: Image.Image, titles: list[str] | None = None,
+                     columns: int = 3) -> None:
+    """ Show greyscale images with each pixel's value written on top of that pixel """
+    if not images:
+        raise ValueError("Give at least one image")
+    arrays = [np.asarray(img.convert("L")) for img in images]
+    for arr in arrays:
+        if max(arr.shape) > MAX_ANNOTATED_SIZE:
+            raise ValueError(f"Image is {arr.shape[1]}x{arr.shape[0]}; too large to write a number on "
+                             f"every pixel (limit {MAX_ANNOTATED_SIZE}). Use a smaller image.")
+
+    n = len(arrays)
+    cols = min(columns, n)
+    rows = -(-n // cols)                                   # ceiling division
+    cell = 0.55                                            # inches per pixel
+    max_w = max(a.shape[1] for a in arrays)
+    max_h = max(a.shape[0] for a in arrays)
+    fig, axes = plt.subplots(rows, cols, squeeze=False,
+                             figsize=(cell * max_w * cols + 0.6 * cols, (cell * max_h + 0.9) * rows))
+
+    for i, (ax, arr) in enumerate(zip(axes.flat, arrays)):
+        h, w = arr.shape
+        ax.imshow(arr, cmap="gray", vmin=0, vmax=255, interpolation="nearest")
+        for y in range(h):
+            for x in range(w):
+                value = int(arr[y, x])
+                ax.text(x, y, str(value), ha="center", va="center", fontsize=9,
+                        color="white" if value < 128 else "black")   # readable on any shade
+        ax.set_xticks(np.arange(-0.5, w, 1), minor=True)   # pixel borders
+        ax.set_yticks(np.arange(-0.5, h, 1), minor=True)
+        ax.grid(which="minor", color="gray", linewidth=0.6)
+        ax.set_xticks(range(w))                            # coordinate labels
+        ax.set_yticks(range(h))
+        ax.xaxis.tick_top()
+        ax.tick_params(which="both", length=0)
+        ax.set_title(titles[i] if titles else f"Image {i + 1}", pad=24)
+
+    for ax in axes.flat[n:]: # hide unused grid cells
+        ax.axis("off")
+    plt.tight_layout()
+    plt.show()
 
 def show(*images: Image.Image, titles: list[str] | None = None, caption: str | None = None) -> None:
     """Display one or more images side by side with matplotlib """
@@ -100,7 +156,7 @@ def _to_rgb(img: Image.Image) -> Image.Image:
         img = Image.alpha_composite(background, img)
     return img.convert("RGB")
 
-if __name__ == "__main__":
+def test():
     images = list_images()
     print("Images found:")
     for p in images:
@@ -126,4 +182,19 @@ if __name__ == "__main__":
     picks = random.choices(images, k=3) # 3 random picks, duplicates allowed
     loaded = [load_image(p) for p in picks]
     show(*loaded, titles=[p.name for p in picks])
-    print("\nSuccessfully displayed 3 random images")
+    print("\nSuccessfully displayed 3 random images")  
+
+if __name__ == "__main__":
+    px = 16
+    gradient = generate_gradient(low=0, high=255, width=px, height=px)
+    arr = np.asarray(gradient.convert("RGB")) # dither.apply expects (H, W, 3)
+    #show(gradient)
+
+    #dither = Image.fromarray(dither.apply(arr, "random", 10, seed=0)).convert("L")
+    noise_arr = dither.random_noise(arr, levels=256, amount=1.0, seed=0)
+    noise = Image.fromarray(noise_arr).convert("L")
+    show(noise)
+    dither = Image.fromarray(dither.apply(arr, "random", 2, seed=0)).convert("L")
+
+    show(gradient, noise, dither, titles=["", "", ""])
+    show_intensities(gradient, noise, dither, titles=["", "", ""], columns=3)
