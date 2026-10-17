@@ -6,12 +6,15 @@ from PIL import Image
 from src import dither, ImageLoader, ImageAnalyser
 from src.pixelize import pixelize
 
-IMAGE_NAMES = "Rock.png" # None = every image in data/images/
+IMAGE_NAMES = "Tennis-Balls.jpg" # None = every image in data/images/
 MAX_SIZE = 10_000              # longest side after pixelizing
-METHODS = ["floyd-steinberg", "atkinson", "jarvis", "sierra"]
-METHOD = "floyd-steinberg"
-LEVELS = 2                  # Distinct brightness values
-COLOR = True                # False = grayscale, True = dither R, G, B separately
+KERNELS = ["floyd-steinberg", "atkinson", "jarvis", "sierra"]
+METHODS = ["threshold", "random", "bayer", *KERNELS]
+METHOD = "random"
+LEVELS = 32                  # Distinct brightness values
+COLOR = False                # False = grayscale, True = dither R, G, B separately
+SEED = 42                   # only used when METHOD == "random"
+AMOUNT = 1.0                # only used when METHOD == "random", doesn't change anything; you have to edit in dither.py
 BAYER_SIZE = 4              # only used when METHOD == "bayer"
 UPSCALE = 1                # enlarge result so dither pixels are visible (1 = OFF)
 
@@ -29,9 +32,14 @@ def dither_image(img: Image.Image) -> Image.Image:
     small = pixelize(img, MAX_SIZE)
     if not COLOR:
         small = small.convert("L").convert("RGB")   # grayscale, kept as 3 channels
+        ImageLoader.show(small, titles=[f"Greyscaled ({small.size[0]}x{small.size[1]})"])
+        if True:
+            out_path = OUTPUT_DIR / f"greyscaled.png"
+            small.save(out_path)
+            print(f"{small.size[0]}x{small.size[1]}, saved {out_path}")
 
     # Step 3: dither
-    result = dither.apply(np.asarray(small), METHOD, LEVELS, BAYER_SIZE)
+    result = dither.apply(np.asarray(small), METHOD, LEVELS, BAYER_SIZE, SEED)
     out = Image.fromarray(result)
     if not COLOR:
         out = out.convert("L")
@@ -65,23 +73,20 @@ def main() -> None:
     for path in paths:
         print(f"Loading {path.name}. . .\n")
         original = ImageLoader.load_image(path)
-        
+        if False: #SHOW_RESULTS:
+            ImageLoader.show(original, titles=[f"Original ({original.size[0]}x{original.size[1]})"])
+
         print(f"\nDithering {path.name}. . .\n")
         dithered = dither_image(original)
+        if SHOW_RESULTS:
+            ImageLoader.show(dithered, titles=[f"Dithered ({METHOD}, {LEVELS} levels)"])
 
         if True:
-            out_path = OUTPUT_DIR / f"{path.stem}_{METHOD}.png"
+            out_path = OUTPUT_DIR / f"{path.stem}_{METHOD}_{AMOUNT}.png"
             dithered.save(out_path)
             print(f"{path.name}: {original.size[0]}x{original.size[1]} -> {dithered.size[0]}x{dithered.size[1]}, saved {out_path}")
 
-        if SHOW_RESULTS:
-            """
-            ImageLoader.show(original, dithered,
-                             titles=[f"Original ({original.size[0]}x{original.size[1]})", f"Sierra Dithered ({dithered.size[0]}x{dithered.size[1]})"],
-                             caption=None#f"MAX_SIZE={MAX_SIZE} LEVELS={LEVELS}"
-                             )
-            """
-            ImageLoader.show_zoom(original, dithered, region=(300, 450, 50), titles=["Original", f"Dithered"])
+        #ImageLoader.show_zoom(original, dithered, region=(300, 450, 50), titles=["Original", f"Dithered"])
 
 if __name__ == "__main__":
     main()
