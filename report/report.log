@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.13)  14 OCT 2026 21:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.13)  17 OCT 2026 17:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -688,81 +688,123 @@ File: ../output/Figure_1_3.png Graphic file (type png)
 Package pdftex.def Info: ../output/Figure_1_3.png  used on input line 109.
 (pdftex.def)             Requested size: 318.66948pt x 255.2822pt.
  [3 <../data/images/Golden-Retriever.jpeg> <../output/Figure_1_2.png (PNG copy)> <../output/Figure_1_3.png>]
-<../data/images/IBM-Color-Graphics-Adapter.jpg, id=119, 879.285pt x 361.35pt>
-File: ../data/images/IBM-Color-Graphics-Adapter.jpg Graphic file (type jpg)
-<use ../data/images/IBM-Color-Graphics-Adapter.jpg>
-Package pdftex.def Info: ../data/images/IBM-Color-Graphics-Adapter.jpg  used on input line 132.
+<../data/figures/IBM-Color-Graphics-Adapter.jpg, id=119, 879.285pt x 361.35pt>
+File: ../data/figures/IBM-Color-Graphics-Adapter.jpg Graphic file (type jpg)
+<use ../data/figures/IBM-Color-Graphics-Adapter.jpg>
+Package pdftex.def Info: ../data/figures/IBM-Color-Graphics-Adapter.jpg  used on input line 132.
 (pdftex.def)             Requested size: 264.0424pt x 108.51059pt.
-<../data/images/IBM-5153-Color.png, id=120, 513.92pt x 256.96pt>
-File: ../data/images/IBM-5153-Color.png Graphic file (type png)
-<use ../data/images/IBM-5153-Color.png>
-Package pdftex.def Info: ../data/images/IBM-5153-Color.png  used on input line 136.
+<../data/figures/IBM-5153-Color.png, id=120, 513.92pt x 256.96pt>
+File: ../data/figures/IBM-5153-Color.png Graphic file (type png)
+<use ../data/figures/IBM-5153-Color.png>
+Package pdftex.def Info: ../data/figures/IBM-5153-Color.png  used on input line 136.
 (pdftex.def)             Requested size: 163.88815pt x 81.94264pt.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 164.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 166.
  (C:\Users\xuntr\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [4{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc} <../data/images/IBM-Color-Graphics-Adapter.jpg> <../data/images/IBM-5153-Color.png (PNG copy)>]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 195.
- [5] [6]
-<../data/images/Eagle.jpg, id=145, 1541.76pt x 1159.33125pt>
+) [4{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc} <../data/figures/IBM-Color-Graphics-Adapter.jpg> <../data/figures/IBM-5153-Color.png (PNG copy)>]
+<../data/figures/Paku-Paku.png, id=134, 459.21562pt x 325.215pt>
+File: ../data/figures/Paku-Paku.png Graphic file (type png)
+<use ../data/figures/Paku-Paku.png>
+Package pdftex.def Info: ../data/figures/Paku-Paku.png  used on input line 209.
+(pdftex.def)             Requested size: 182.09486pt x 128.95723pt.
+<../data/figures/PC-Paint.png, id=135, 321.2pt x 200.75pt>
+File: ../data/figures/PC-Paint.png Graphic file (type png)
+<use ../data/figures/PC-Paint.png>
+Package pdftex.def Info: ../data/figures/PC-Paint.png  used on input line 214.
+(pdftex.def)             Requested size: 204.85846pt x 128.03845pt.
+<../data/figures/SimCity.png, id=136, 642.4pt x 401.5pt>
+File: ../data/figures/SimCity.png Graphic file (type png)
+<use ../data/figures/SimCity.png>
+Package pdftex.def Info: ../data/figures/SimCity.png  used on input line 219.
+(pdftex.def)             Requested size: 273.14923pt x 170.72406pt.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 240.
+<../data/images/Sonic.png, id=137, 1213.53375pt x 1683.28876pt>
+File: ../data/images/Sonic.png Graphic file (type png)
+<use ../data/images/Sonic.png>
+Package pdftex.def Info: ../data/images/Sonic.png  used on input line 244.
+(pdftex.def)             Requested size: 91.04742pt x 126.26689pt.
+ [5 <../data/figures/Paku-Paku.png (PNG copy)> <../data/figures/PC-Paint.png> <../data/figures/SimCity.png> <../data/images/Sonic.png>]
+<../output/Apple_1.png, id=150, 925.056pt x 442.2924pt>
+File: ../output/Apple_1.png Graphic file (type png)
+<use ../output/Apple_1.png>
+Package pdftex.def Info: ../output/Apple_1.png  used on input line 289.
+(pdftex.def)             Requested size: 432.48051pt x 206.78415pt.
+<../output/Apple_2.png, id=151, 594.7821pt x 361.35pt>
+File: ../output/Apple_2.png Graphic file (type png)
+<use ../output/Apple_2.png>
+Package pdftex.def Info: ../output/Apple_2.png  used on input line 296.
+(pdftex.def)             Requested size: 250.38564pt x 152.11884pt.
+ [6 <../output/Apple_1.png> <../output/Apple_2.png>]
+<../data/images/Rock.png, id=165, 1284.8pt x 963.6pt>
+File: ../data/images/Rock.png Graphic file (type png)
+<use ../data/images/Rock.png>
+Package pdftex.def Info: ../data/images/Rock.png  used on input line 325.
+(pdftex.def)             Requested size: 182.09486pt x 136.56456pt.
+<../output/Rock_1.png, id=166, 1284.8pt x 963.6pt>
+File: ../output/Rock_1.png Graphic file (type png)
+<use ../output/Rock_1.png>
+Package pdftex.def Info: ../output/Rock_1.png  used on input line 330.
+(pdftex.def)             Requested size: 182.09486pt x 136.56456pt.
+ [7 <../data/images/Rock.png> <../output/Rock_1.png (PNG copy)>]
+<../data/images/Eagle.jpg, id=176, 1541.76pt x 1159.33125pt>
 File: ../data/images/Eagle.jpg Graphic file (type jpg)
 <use ../data/images/Eagle.jpg>
-Package pdftex.def Info: ../data/images/Eagle.jpg  used on input line 244.
+Package pdftex.def Info: ../data/images/Eagle.jpg  used on input line 361.
 (pdftex.def)             Requested size: 145.68144pt x 109.53615pt.
-<../output/Figure_5_2.png, id=146, 1204.5pt x 905.3825pt>
+<../output/Figure_5_2.png, id=177, 1204.5pt x 905.3825pt>
 File: ../output/Figure_5_2.png Graphic file (type png)
 <use ../output/Figure_5_2.png>
-Package pdftex.def Info: ../output/Figure_5_2.png  used on input line 248.
+Package pdftex.def Info: ../output/Figure_5_2.png  used on input line 365.
 (pdftex.def)             Requested size: 145.68144pt x 109.49774pt.
-<../output/Figure_5_3.png, id=147, 1204.5pt x 905.3825pt>
+<../output/Figure_5_3.png, id=178, 1204.5pt x 905.3825pt>
 File: ../output/Figure_5_3.png Graphic file (type png)
 <use ../output/Figure_5_3.png>
-Package pdftex.def Info: ../output/Figure_5_3.png  used on input line 252.
+Package pdftex.def Info: ../output/Figure_5_3.png  used on input line 369.
 (pdftex.def)             Requested size: 145.68144pt x 109.49774pt.
-<../output/Figure_5_4.png, id=148, 1204.5pt x 905.3825pt>
+<../output/Figure_5_4.png, id=179, 1204.5pt x 905.3825pt>
 File: ../output/Figure_5_4.png Graphic file (type png)
 <use ../output/Figure_5_4.png>
-Package pdftex.def Info: ../output/Figure_5_4.png  used on input line 256.
+Package pdftex.def Info: ../output/Figure_5_4.png  used on input line 373.
 (pdftex.def)             Requested size: 145.68144pt x 109.49774pt.
-<../output/Figure_5_5.png, id=149, 1204.5pt x 905.3825pt>
+<../output/Figure_5_5.png, id=180, 1204.5pt x 905.3825pt>
 File: ../output/Figure_5_5.png Graphic file (type png)
 <use ../output/Figure_5_5.png>
-Package pdftex.def Info: ../output/Figure_5_5.png  used on input line 260.
+Package pdftex.def Info: ../output/Figure_5_5.png  used on input line 377.
 (pdftex.def)             Requested size: 145.68144pt x 109.49774pt.
- [7 <../data/images/Eagle.jpg> <../output/Figure_5_2.png (PNG copy)> <../output/Figure_5_3.png (PNG copy)> <../output/Figure_5_4.png (PNG copy)> <../output/Figure_5_5.png (PNG copy)>]
+ [8 <../data/images/Eagle.jpg> <../output/Figure_5_2.png (PNG copy)> <../output/Figure_5_3.png (PNG copy)> <../output/Figure_5_4.png (PNG copy)> <../output/Figure_5_5.png (PNG copy)>]
 
-LaTeX Warning: Marginpar on page 8 moved.
+LaTeX Warning: Marginpar on page 9 moved.
 
 
-LaTeX Warning: Marginpar on page 8 moved.
+LaTeX Warning: Marginpar on page 9 moved.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 431.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 548.
 (C:\Users\xuntr\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (50.63852pt too wide) in paragraph at lines 431--431
+Overfull \hbox (50.63852pt too wide) in paragraph at lines 548--548
 \T1/lmtt/m/n/10 generate_gallery.py 
  []
 
 
-Overfull \hbox (58.66626pt too wide) in paragraph at lines 431--431
+Overfull \hbox (58.66626pt too wide) in paragraph at lines 548--548
 \T1/lmtt/m/n/10 appendix_gallery.tex\T1/lmr/m/n/10 .[]  
  []
 
 
-Overfull \hbox (50.63852pt too wide) in paragraph at lines 431--431
+Overfull \hbox (50.63852pt too wide) in paragraph at lines 548--548
 \T1/lmtt/m/n/10 generate_gallery.py 
  []
 
 
-Overfull \hbox (58.66626pt too wide) in paragraph at lines 431--431
+Overfull \hbox (58.66626pt too wide) in paragraph at lines 548--548
 \T1/lmtt/m/n/10 appendix_gallery.tex\T1/lmr/m/n/10 .[]  
  []
 
 
-LaTeX Warning: Marginpar on page 8 moved.
+LaTeX Warning: Marginpar on page 9 moved.
 
-[8] [9] (report.aux)
+[9] [10] (report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -771,17 +813,17 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: CE51F98D655D6FF503FA9268DED4A47E;2068.
  ) 
 Here is how much of TeX's memory you used:
- 23446 strings out of 467871
- 438145 string characters out of 5418375
- 850072 words of memory out of 5000000
- 51864 multiletter control sequences out of 15000+600000
- 690684 words of font info for 86 fonts, out of 8000000 for 9000
+ 23525 strings out of 467871
+ 440254 string characters out of 5418375
+ 852155 words of memory out of 5000000
+ 51937 multiletter control sequences out of 15000+600000
+ 691054 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,10n,108p,573b,947s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,10n,108p,573b,950s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (9 pages, 3437662 bytes).
+Output written on report.pdf (10 pages, 5995226 bytes).
 PDF statistics:
- 255 PDF objects out of 1000 (max. 8388607)
- 50 named destinations out of 1000 (max. 500000)
- 188 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 55 named destinations out of 1000 (max. 500000)
+ 228 words of extra memory for PDF output out of 10000 (max. 10000000)
 

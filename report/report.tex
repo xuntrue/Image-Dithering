@@ -129,11 +129,11 @@ four bits per pixel, since $2^4 = 16$.
 \begin{figure}[htbp]
   \centering
   \begin{subfigure}{0.58\textwidth}
-    \includegraphics[width=\linewidth]{../data/images/IBM-Color-Graphics-Adapter.jpg}
+    \includegraphics[width=\linewidth]{../data/figures/IBM-Color-Graphics-Adapter.jpg}
     \caption{IBM CGA card}
   \end{subfigure}
   \begin{subfigure}{0.36\textwidth}
-    \includegraphics[width=\linewidth]{../data/images/IBM-5153-Color.png}
+    \includegraphics[width=\linewidth]{../data/figures/IBM-5153-Color.png}
     \caption{16 colour palette on a CGA monitor}
   \end{subfigure}
   \caption{The IBM Colour Graphics Adapter (CGA) and its 16-colour palette.}
@@ -158,6 +158,8 @@ which uses 16 bits per pixel and yields $2^{16} = 65{,}536$ colours
   \end{tabular}
 \end{table}
 
+
+
 CGA offered several video modes, each with a different resolution and palette size
 suited to different applications with different memory constraints:
 \begin{itemize}
@@ -166,12 +168,7 @@ suited to different applications with different memory constraints:
   \item a 640x200 mode with 2 colours
 \end{itemize}
 
-%PakuPaku in 160x100 16 color mode
-%PCPaint in 320 × 200 3rd palette low intensity, showing a typical low-resolution interface.
-%Note the use of dithering to overcome the CGA palette limitations.
-%SimCity in 640 × 200 monochrome.
-%Note the use of dithering to simulate gray tones and a non-square pixel ratio that deforms the fonts.
-
+Each mode was a compromise between resolution and colour depth.
 For some programs, they were small enough to make use of the 16-colour mode.
 But the limited palette for programs with a larger resolution was a problem.
 Programmers therefore mixed pixel patterns to imitate the missing colours,
@@ -179,20 +176,75 @@ which is a major reason dithering became widespread.
 In the 1980s, dithering was used in many games and graphics programs to
 simulate more colours than the hardware could display.
 
+\smallskip   % \smallskip \medskip \bigskip
+
+Take a look at Figure \ref{fig:cga-examples}.
+The three images are from the same era, but they use different CGA modes.
+For example, the game \ref{fig:pakupaku}, the original Pac-Man, uses the 160x100 16 colour mode.
+The game makes use of the full palette, each ghost is a different colour, each fruit is a different colour,
+and the yellow Pac-Man really pops out of the screen. However, although in this mode the resolution
+is limited, the user is still able to experience the game just fine and play it without any problems.
+While the program \ref{fig:pcpaint} uses the 320x200 4 colour mode, PCPaint is designed
+to create images, and the user is able to select the colours they want to use.
+At that the time, the 4 colour mode was a compromise between resolution and colour depth.
+\smallskip   % \smallskip \medskip \bigskip
+Finally, \ref{fig:simcity} uses the 640x200 monochrome mode.
+It's a city-building simulation game where the user is able to build their own city.
+It's a very complex game, to display all the information on the screen, the program uses the 640x200 monochrome mode.
+However, beause of the limited palette, the program uses dithering to simulate gray tones
+and a non-square pixel ratio that deforms the fonts.
+The use of dithering helps to make up for the lack of colours and makes the game more visually appealing.
+
+%PakuPaku in 160x100 16 color mode
+%PCPaint in 320 × 200 3rd palette low intensity, showing a typical low-resolution interface.
+%Note the use of dithering to overcome the CGA palette limitations.
+%SimCity in 640 × 200 monochrome.
+%Note the use of dithering to simulate gray tones and a non-square pixel ratio that deforms the fonts.
+
 \newpage
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}{0.40\textwidth}
+    \includegraphics[width=\linewidth]{../data/figures/Paku-Paku.png}
+    \caption{PakuPaku in 160x100 16 color mode}
+    \label{fig:pakupaku}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{../data/figures/PC-Paint.png}
+    \caption{PCPaint in 320×200 3rd palette low intensity}
+    \label{fig:pcpaint}
+  \end{subfigure}
+  \begin{subfigure}{0.60\textwidth}
+    \includegraphics[width=\linewidth]{../data/figures/SimCity.png}
+    \caption{SimCity in 640×200 monochrome}
+    \label{fig:simcity}
+  \end{subfigure}
+  \caption{The IBM Colour Graphics Adapter (CGA) and its 16-colour palette.}
+  \label{fig:cga-examples}
+\end{figure}
 
 % ------------------------------------------------------------------
 \section{Use Cases: Early Game Graphics}
 \label{sec:usecases}
 
 Console and arcade artists faced the same constraint: a small palette and low
-resolution. The Sega Mega Drive (Genesis) offered a 9-bit palette of 512
+resolution. But are tasked with creating a visually rich experience.
+The Sega Mega Drive (Genesis) offered a 9-bit palette of 512
 colours, of which only a limited number could be shown at once. Artists in
 games such as \emph{Sonic the Hedgehog} used checkerboard patterns of two
 colours; on a CRT television connected by composite video, the signal
 blurred the pattern into an apparent third colour or a semi-transparent
 effect (a commonly cited example is the waterfalls of Green Hill Zone).
+
 \todo{Verify details and cite a source.}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.20\textwidth]{../data/images/Sonic.png}
+  \caption{Sonic the Hedgehog (1991) on the Sega Mega Drive}
+  \label{fig:sonic}
+\end{figure}
 
 Dithering also served monochrome displays: Atkinson's algorithm
 (Section~\ref{sec:atkinson}) was written for the original Apple Macintosh,
@@ -204,24 +256,89 @@ whose screen was strictly one bit per pixel.
 \section{The Primitive Approach: Nearest Colour}
 \label{sec:nearest}
 
-The simplest strategy maps every pixel independently to the closest palette
-colour. With palette $P$ and pixel $p=(r,g,b)$,
+You might think why do we need dithering? 
+Why can't we just quantise the image to the nearest colour in the palette?
+The simplest strategy maps every pixel independently to the closest palette colour.
+With palette $P$ and pixel $p=(r,g,b)$,
 \begin{equation}
   \operatorname{map}(p) = \arg\min_{c\in P}
   \sqrt{(r-c_r)^2 + (g-c_g)^2 + (b-c_b)^2}.
 \end{equation}
 For two grayscale levels this reduces to thresholding at 128.
+\bigskip   % \smallskip \medskip \bigskip
+%\paragraph{Remark (choice of distance).}
+%Euclidean distance is used rather than cosine similarity. Cosine similarity compares
+%only the \emph{direction} of two colour vectors and ignores their magnitude,
+%so $(255,0,0)$ and $(128,0,0)$ would be considered identical even though one is much darker.
 
-\paragraph{Remark (choice of distance).}
-Euclidean distance is used rather than cosine similarity. Cosine similarity
-compares only the \emph{direction} of two colour vectors and ignores their
-magnitude, so $(255,0,0)$ and $(128,0,0)$ would be considered identical even
-though one is much darker.
+Take a look at the example in Figure \ref{fig:apple_nearest_colour}.
+The original image of an apple is quantised to different levels of quantisation, 10, 5, and 2.
+You can see that as the number of quantisation levels decreases,
+the image loses more and more information. At level 10, the image is still recognisable,
+but at level 5, the image is starting to lose its details.
+Notice the banding at the center of the apple as well as on the leaf,
+the difference shades of green or red are lost, its more apparent where certain pixels are
+mapped to the same colour and its easier to recognise the grainy texture of pixalized images. 
+At level 2, its evident that the image has lost a lot of information,
+its a day and night difference compared to the original image.
+Because of the quantisation error, the original color of the apple is lost, its misrepresented
+and is an entirely different shade of red, and the image looks flat and unnatural.
 
-Nearest-colour mapping discards the error entirely. Smooth gradients collapse
-into flat regions with hard edges (\emph{banding} or \emph{contouring}), and
-large areas of similar tone become a single solid colour. The algorithms in
-Section~\ref{sec:algorithms} fix this by \emph{remembering} the error.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../output/Apple_1.png}
+  \caption{Nearest colour mapping of an apple to different levels of quantisation}
+  \label{fig:apple_nearest_colour}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\textwidth]{../output/Apple_2.png}
+  \caption{Bar chart of the number of distinct colours in the original and the quantised images}
+  \label{fig:apple_bar_chart}
+\end{figure}
+
+\newpage
+
+The bar chart in Figure \ref{fig:apple_bar_chart} shows the number of distinct colours
+in the quantised images drops logarithmically as the number of quantisation levels decreases.
+It terms of numbers, the original image has 538,569 distinct colours,
+while the all quantised images have less literally than 0.048\% of the original number of distinct colours.
+Although its apparent for levels 5 and 2, the color information is significantly reduced,
+its actually not as apparent in level 10, the number of distinct colours is still reduced by 99.95\%,
+but the image still looks recognisable and retains a lot of its original information.
+This ultimately is an optical illusion and has to do with how the human eye perceives colour and light,
+the image looks recognisable but we know the color information is significantly reduced,
+what we perceive as a single shade of colour is actually a combination of different distinct colours.
+
+\medskip   % \smallskip \medskip \bigskip
+
+Here's another example of nearest colour mapping in Figure \ref{fig:rock}.
+The original image of a rock is mostly grey, with some brown and blue tones.
+When mapped to a 16-colour palette, the image loses a lot of its original information;
+grey areas are mapped to either black or white,
+and those small specks of brown and blue tones are now very apparent. 
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.40\textwidth}
+    \raisebox{-\height}{\includegraphics[width=\linewidth]{../data/images/Rock.png}}
+    \caption{Original image of a rock}
+    \label{fig:rock_original}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.40\textwidth}
+    \raisebox{-\height}{\includegraphics[width=\linewidth]{../output/Rock_1.png}}
+    \caption{Mapped to a 16-colour palette}
+    \label{fig:rock1}
+  \end{subfigure}
+  \caption{Nearest colour mapping of a rock}
+  \label{fig:rock}
+\end{figure}
+
+Nearest-colour mapping discards the error entirely.
+Smooth gradients collapse into flat regions with hard edges (\emph{banding} or \emph{contouring}),
+and large areas of similar tone become a single solid colour.
+The algorithms in Section~\ref{sec:algorithms} fix this by \emph{remembering} the error.
 \todo{Insert a threshold-versus-dithered comparison figure.}
 
 \newpage
