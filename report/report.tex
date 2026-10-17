@@ -34,7 +34,7 @@ every pixel must be mapped to one of the available values. This is known as \emp
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.9\textwidth]{../output/Figure_1_1.png}
+  \includegraphics[width=0.9\textwidth]{../output/Section_1/Figure_1_1.png}
   \caption{Quantisation of a continuous wave. The original signal (blue) quantised to 2 bits = 4 levels (red).}
   \label{fig:quant-example}
 \end{figure}
@@ -93,7 +93,7 @@ the average tone is preserved.
     \caption{Original}
   \end{subfigure}
   \begin{subfigure}{0.40\textwidth}
-    \includegraphics[width=\linewidth]{../output/Figure_1_2.png}
+    \includegraphics[width=\linewidth]{../output/Section_1/Figure_1_2.png}
     \caption{Dithered}
   \end{subfigure}
   \caption{Original versus dithered}
@@ -106,7 +106,7 @@ We'll focus on the visual case, where dithering is used to reduce the number of 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.70\textwidth]{../output/Figure_1_3.png}
+  \includegraphics[width=0.70\textwidth]{../output/Section_1/Figure_1_3.png}
   \caption{Dithering of the Mona Lisa. The original image (left)
   is quantised to 2 levels per channel and then dithered (right).}
   \label{fig:dither-example}
@@ -187,7 +187,7 @@ is limited, the user is still able to experience the game just fine and play it 
 While the program \ref{fig:pcpaint} uses the 320x200 4 colour mode, PCPaint is designed
 to create images, and the user is able to select the colours they want to use.
 At that the time, the 4 colour mode was a compromise between resolution and colour depth.
-\smallskip   % \smallskip \medskip \bigskip
+% \smallskip \medskip \bigskip
 Finally, \ref{fig:simcity} uses the 640x200 monochrome mode.
 It's a city-building simulation game where the user is able to build their own city.
 It's a very complex game, to display all the information on the screen, the program uses the 640x200 monochrome mode.
@@ -256,8 +256,9 @@ whose screen was strictly one bit per pixel.
 \section{The Primitive Approach: Nearest Colour}
 \label{sec:nearest}
 
-You might think why do we need dithering? 
-Why can't we just quantise the image to the nearest colour in the palette?
+You might think, \textit{why do we need dithering?} 
+\textit{Why can't we just quantise the image to the nearest colour in the palette?} 
+Let's explore that.
 The simplest strategy maps every pixel independently to the closest palette colour.
 With palette $P$ and pixel $p=(r,g,b)$,
 \begin{equation}
@@ -273,9 +274,8 @@ For two grayscale levels this reduces to thresholding at 128.
 
 Take a look at the example in Figure \ref{fig:apple_nearest_colour}.
 The original image of an apple is quantised to different levels of quantisation, 10, 5, and 2.
-You can see that as the number of quantisation levels decreases,
-the image loses more and more information. At level 10, the image is still recognisable,
-but at level 5, the image is starting to lose its details.
+You can see that as $L$ decreases, the image loses more and more information.
+At level 10, the image is still recognisable, but at level 5, the image is starting to lose its details.
 Notice the banding at the center of the apple as well as on the leaf,
 the difference shades of green or red are lost, its more apparent where certain pixels are
 mapped to the same colour and its easier to recognise the grainy texture of pixalized images. 
@@ -286,14 +286,14 @@ and is an entirely different shade of red, and the image looks flat and unnatura
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.95\textwidth]{../output/Apple_1.png}
+  \includegraphics[width=0.95\textwidth]{../output/Section_4/Apple_1.png}
   \caption{Nearest colour mapping of an apple to different levels of quantisation}
   \label{fig:apple_nearest_colour}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.55\textwidth]{../output/Apple_2.png}
+  \includegraphics[width=0.55\textwidth]{../output/Section_4/Apple_2.png}
   \caption{Bar chart of the number of distinct colours in the original and the quantised images}
   \label{fig:apple_bar_chart}
 \end{figure}
@@ -301,7 +301,7 @@ and is an entirely different shade of red, and the image looks flat and unnatura
 \newpage
 
 The bar chart in Figure \ref{fig:apple_bar_chart} shows the number of distinct colours
-in the quantised images drops logarithmically as the number of quantisation levels decreases.
+in the quantised images drops logarithmically as $L$ decreases.
 It terms of numbers, the original image has 538,569 distinct colours,
 while the all quantised images have less literally than 0.048\% of the original number of distinct colours.
 Although its apparent for levels 5 and 2, the color information is significantly reduced,
@@ -315,7 +315,7 @@ what we perceive as a single shade of colour is actually a combination of differ
 
 Here's another example of nearest colour mapping in Figure \ref{fig:rock}.
 The original image of a rock is mostly grey, with some brown and blue tones.
-When mapped to a 16-colour palette, the image loses a lot of its original information;
+When mapped to a 8-colour palette, the image loses a lot of its original information;
 grey areas are mapped to either black or white,
 and those small specks of brown and blue tones are now very apparent. 
 
@@ -327,8 +327,8 @@ and those small specks of brown and blue tones are now very apparent.
     \label{fig:rock_original}
   \end{subfigure}
   \begin{subfigure}[t]{0.40\textwidth}
-    \raisebox{-\height}{\includegraphics[width=\linewidth]{../output/Rock_1.png}}
-    \caption{Mapped to a 16-colour palette}
+    \raisebox{-\height}{\includegraphics[width=\linewidth]{../output/Section_4/Rock_1.png}}
+    \caption{Mapped to a 8-colour palette}
     \label{fig:rock1}
   \end{subfigure}
   \caption{Nearest colour mapping of a rock}
@@ -346,10 +346,168 @@ The algorithms in Section~\ref{sec:algorithms} fix this by \emph{remembering} th
 % ------------------------------------------------------------------
 \section{Dithering Algorithms}
 \label{sec:algorithms}
+In layman's terms, dithering is a technique used to create the illusion of more colors
+in an image by mixing pixels of different colors together.
+There are many ways to dither an image, but they all share the same basic idea:
+\begin{enumerate}
+  \item Quantise the current pixel to the nearest palette colour.
+  \item Compute the quantisation error.
+  \item Distribute the error to neighbouring pixels that have not yet been processed.
+  \item Repeat until all pixels have been processed.
+\end{enumerate}
+Dithering algorithms can be broadly classified into two categories:
+point processing and error diffusion.
 
-There are many ways to dither an image.
-The simplest is to add random noise to each pixel before quantisation,
+\subsection{Point processing}
+Point processing algorithms operate on each pixel independently,
+without considering the neighbouring pixels.
+The advantage of point processing is that it is fast and simple to implement.
+The disadvantage is that it can produce a grainy texture
+and does not preserve the mean brightness of the image.
+
+\subsubsection{Random dithering}
+The simplest method is to add random noise to each pixel before quantisation,
 which breaks up the banding but produces a grainy texture.
+We add a random value $r\in[-\Delta/2, \Delta/2]$ to each pixel before quantisation:
+\begin{equation}
+  \text{new} = q(\text{old} + r), \qquad r \sim \mathcal{U}\!\left[-\frac{\Delta}{2}, \frac{\Delta}{2}\right].
+\end{equation}
+The reason why this works is that the quantisation error is uniformly distributed
+in $[-\Delta/2, \Delta/2]$, so adding a random value from the same range will cancel out
+the error on average.
+\todo{Add a gradient figure}
+\todo{Compare threshold and random dithering}
+Let's say we have an image of a gradient from black to white,
+and we want to quantise it to 2 levels (black and white).
+If we use nearest colour mapping, the gradient will be quantised to either black or white,
+which produces a banding effect where we have a clear threshold.
+However, if we add random noise to each pixel before quantisation,
+the gradient will be quantised to a mix of black and white pixels,
+which creates that illusion of a smooth gradient.
+
+\todo{Add intensity histogram of the original and dithered images}
+
+\newpage
+
+Take a look at Figure \ref{fig:tennis-balls}, we'll random dither a greyscale image of tennis balls
+$L={2,3,9}$. 
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    {\includegraphics[width=\linewidth]{../data/images/Tennis-Balls.jpg}}
+    \caption{Original}
+    \label{fig:tennis-balls-original}
+  \end{subfigure}
+  \hspace{0.04\textwidth}%
+  \begin{subfigure}[t]{0.45\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Tennis-Balls_greyscaled.png}}
+    \caption{Greyscale}
+    \label{fig:tennis-balls-grayscale}
+  \end{subfigure}
+
+  \begin{subfigure}[t]{0.31\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Tennis-Balls_random2.png}}
+    \caption{Random Dithering (Levels=2)}
+    \label{fig:tennis-balls-random2}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.31\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Tennis-Balls_random3.png}}
+    \caption{Random Dithering (Levels=3)  }
+    \label{fig:tennis-balls-random3}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.31\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Tennis-Balls_random9.png}}
+    \caption{Random Dithering (Levels=9)}
+    \label{fig:tennis-balls-random9}
+  \end{subfigure}
+  \caption{Random dithering applied to greyscale image of tennis balls}
+  \label{fig:tennis-balls}
+\end{figure}
+
+The reason why we use a greyscale image is that it allows us to focus on
+the dithering effect without the distraction of colour.
+If you're curious to see how random dithering works on a coloured image,
+take a look at Figure \ref{fig:yahoo} below.
+
+\begin{figure}[htbp]
+  \centering
+   \begin{subfigure}[t]{0.30\textwidth}
+    {\includegraphics[width=\linewidth]{../data/images/Yahoo.png}}
+    \caption{Original}
+    \label{fig:yahoo-original}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.30\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Yahoo_random2.png}}
+    \caption{Random Dithering (Levels=2)}
+    \label{fig:yahoo-random2}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.30\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Yahoo_random5.png}}
+    \caption{Random Dithering (Levels=5)}
+    \label{fig:yahoo-random5}
+  \end{subfigure}
+  \caption{Random dithering applied to coloured image of Yahoo logo}
+  \label{fig:yahoo}
+\end{figure}
+
+Random dithering is all about generating white-noise, and its apparent.
+If you inspect Figure \ref{fig:tennis-balls-random2} the tennis ball are generally quite visible,
+but the finer details are lost and are essentially replaced with the generated noise.
+As we increase $L$ we find that the grain is less aparent and the original information is better retained.
+The amount of noise we generate also matters.
+Take a look at Figure \ref{fig:lanterns} on the next page.
+As we introduce a more noise, uniform shades tend to show more noise and we get that grainy texture
+instead of the smooth shade of the original image.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    {\includegraphics[width=\linewidth]{../data/images/Lanterns.jpg}}
+    \caption{Original}
+    \label{fig:lanterns-original}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.45\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Lanterns_greyscaled.png}}
+    \caption{Greyscale}
+    \label{fig:lanterns-grayscale}
+  \end{subfigure}
+
+  \begin{subfigure}[t]{0.70\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Lanterns_random_1.0.png}}
+    \caption{Small noise}
+    \label{fig:lanterns-noise-1}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.70\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Lanterns_random_5.0.png}}
+    \caption{Moderate noise}
+    \label{fig:lanterns-noise-5}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.70\textwidth}
+    {\includegraphics[width=\linewidth]{../output/Section_5_1/Lanterns_random_10.0.png}}
+    \caption{Large noise}
+    \label{fig:lanterns-noise-10}
+  \end{subfigure}
+  \caption{Random dithering applied to greyscale image of lanterns with different levels of noise}
+  \label{fig:lanterns}
+\end{figure}
+
+\newpage
+
+\subsubsection{Bayer dithering}
+Bayer dithering is a more structured approach. It uses something called a 
+\emph{dither matrix}to add a fixed pattern of noise to the image.
+We apply a convolution of the matrix across the image to get our dithered image.
+It is a type of ordered dithering that uses a threshold map to
+determine which pixels to quantise to which colour.
+
+A bayer matrix 
+
+\newpage
+
+\subsection{Error diffusion}
 A more sophisticated approach is to use a \emph{dither matrix} to distribute the 
 quantisation error in a regular pattern.
 The most common method is \emph{error diffusion},
@@ -362,25 +520,23 @@ which spreads the error to neighbouring pixels that have not yet been processed.
     \caption{Original}
   \end{subfigure}\hfill
   \begin{subfigure}{0.32\textwidth}
-    \includegraphics[width=\linewidth]{../output/Figure_5_2.png}
+    \includegraphics[width=\linewidth]{../output/Section_5_2/Figure_5_2.png}
     \caption{Floyd-Steinberg}
   \end{subfigure}
   \begin{subfigure}{0.32\textwidth}
-    \includegraphics[width=\linewidth]{../output/Figure_5_3.png}
+    \includegraphics[width=\linewidth]{../output/Section_5_2/Figure_5_3.png}
     \caption{Atkinson}
   \end{subfigure}
   \begin{subfigure}{0.32\textwidth}
-    \includegraphics[width=\linewidth]{../output/Figure_5_4.png}
+    \includegraphics[width=\linewidth]{../output/Section_5_2/Figure_5_4.png}
     \caption{Jarvis--Judice--Ninke}
   \end{subfigure}
   \begin{subfigure}{0.32\textwidth}
-    \includegraphics[width=\linewidth]{../output/Figure_5_5.png}
+    \includegraphics[width=\linewidth]{../output/Section_5_2/Figure_5_5.png}
     \caption{Sierra}
   \end{subfigure}
   \caption{Different Dithering Algorithms applied to the same image.}
 \end{figure}
-
-\subsection{Error diffusion}
 
 All four algorithms below are \emph{error-diffusion} methods. Pixels are
 processed in scan order. For the current pixel at $(x,y)$:
@@ -399,7 +555,7 @@ Our implementation uses \emph{serpentine} scanning: the scan direction
 alternates every row (and the kernel is mirrored accordingly), which avoids
 the diagonal ``worm'' artefacts of always scanning left to right.
 
-\subsection{Floyd--Steinberg}
+\subsubsection{Floyd--Steinberg}
 \label{sec:fs}
 
 Published by Floyd and Steinberg in 1976, this is the most widely used
@@ -412,7 +568,7 @@ algorithm. It spreads the full error over four neighbours:
   \end{pmatrix}
 \end{equation}
 
-\subsection{Atkinson}
+\subsubsection{Atkinson}
 \label{sec:atkinson}
 
 Developed by Bill Atkinson at Apple for the original Macintosh, this kernel
@@ -430,7 +586,7 @@ Discarding a quarter of the error gives higher contrast: highlights and
 shadows tend to saturate to pure white and black, while mid-tones keep
 crisp, less noisy detail.
 
-\subsection{Jarvis--Judice--Ninke}
+\subsubsection{Jarvis--Judice--Ninke}
 \label{sec:jarvis}
 
 This kernel spreads the error over twelve neighbours across three rows:
@@ -445,7 +601,7 @@ This kernel spreads the error over twelve neighbours across three rows:
 The wider spread produces smoother results with finer texture, at the cost of
 more computation per pixel.
 
-\subsection{Sierra}
+\subsubsection{Sierra}
 \label{sec:sierra}
 
 The three-row Sierra kernel is a lighter relative of Jarvis--Judice--Ninke,
@@ -459,7 +615,7 @@ using ten neighbours and a power-of-two divisor:
   \end{pmatrix}
 \end{equation}
 
-\subsection{Comparison}
+\subsection{Comparison between algorithms}
 
 \begin{table}[htbp]
   \centering
@@ -491,11 +647,33 @@ carried by the \emph{density} of the dots; (2) error diffusion preserves the
 mean brightness almost exactly; (3) pixelising before dithering makes the
 pattern visible and keeps computation fast.}
 
+\newpage
+
 % ------------------------------------------------------------------
-%\references
-%https://en.wikipedia.org/wiki/Quantization_(signal_processing)
-%https://en.wikipedia.org/wiki/Dither
-%https://en.wikipedia.org/wiki/Color_Graphics_Adapter
+\addcontentsline{toc}{section}{References}
+\begin{thebibliography}{9}
+
+\bibitem{wiki-quant}
+Wikipedia contributors.
+\emph{Quantization (signal processing)}.
+\url{https://en.wikipedia.org/wiki/Quantization_(signal_processing)}.
+Accessed \today.
+
+\bibitem{wiki-dither}
+Wikipedia contributors.
+\emph{Dither}.
+\url{https://en.wikipedia.org/wiki/Dither}.
+Accessed \today.
+
+\bibitem{wiki-cga}
+Wikipedia contributors.
+\emph{Color Graphics Adapter}.
+\url{https://en.wikipedia.org/wiki/Color_Graphics_Adapter}.
+Accessed \today.
+
+\end{thebibliography}
+
+\newpage
 
 % ------------------------------------------------------------------
 \appendix

@@ -43,8 +43,8 @@
 \newlabel{fig:apple_bar_chart}{{8}{6}{Bar chart of the number of distinct colours in the original and the quantised images}{figure.caption.12}{}}
 \newlabel{fig:rock_original}{{9a}{7}{Original image of a rock}{figure.caption.13}{}}
 \newlabel{sub@fig:rock_original}{{a}{7}{Original image of a rock}{figure.caption.13}{}}
-\newlabel{fig:rock1}{{9b}{7}{Mapped to a 16-colour palette}{figure.caption.13}{}}
-\newlabel{sub@fig:rock1}{{b}{7}{Mapped to a 16-colour palette}{figure.caption.13}{}}
+\newlabel{fig:rock1}{{9b}{7}{Mapped to a 8-colour palette}{figure.caption.13}{}}
+\newlabel{sub@fig:rock1}{{b}{7}{Mapped to a 8-colour palette}{figure.caption.13}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Nearest colour mapping of a rock}}{7}{figure.caption.13}\protected@file@percent }
 \newlabel{fig:rock}{{9}{7}{Nearest colour mapping of a rock}{figure.caption.13}{}}
 \@writefile{tdo}{\contentsline {todo}{Insert a threshold-versus-dithered comparison figure.}{7}{section*.14}\protected@file@percent }
@@ -53,39 +53,90 @@
 \pgfsyspdfmark {pgfid10}{38920255}{24795572}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Dithering Algorithms}{8}{section.5}\protected@file@percent }
 \newlabel{sec:algorithms}{{5}{8}{Dithering Algorithms}{section.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Different Dithering Algorithms applied to the same image.}}{8}{figure.caption.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Error diffusion}{8}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Floyd--Steinberg}{8}{subsection.5.2}\protected@file@percent }
-\newlabel{sec:fs}{{5.2}{8}{Floyd--Steinberg}{subsection.5.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Atkinson}{8}{subsection.5.3}\protected@file@percent }
-\newlabel{sec:atkinson}{{5.3}{8}{Atkinson}{subsection.5.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Jarvis--Judice--Ninke}{9}{subsection.5.4}\protected@file@percent }
-\newlabel{sec:jarvis}{{5.4}{9}{Jarvis--Judice--Ninke}{subsection.5.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Sierra}{9}{subsection.5.5}\protected@file@percent }
-\newlabel{sec:sierra}{{5.5}{9}{Sierra}{subsection.5.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Comparison}{9}{subsection.5.6}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Summary of the error-diffusion kernels used.}}{9}{table.caption.16}\protected@file@percent }
-\newlabel{tab:kernels}{{3}{9}{Summary of the error-diffusion kernels used}{table.caption.16}{}}
-\@writefile{tdo}{\contentsline {todo}{Verify publication years and add references for each algorithm.}{9}{section*.17}\protected@file@percent }
-\pgfsyspdfmark {pgfid11}{4661699}{26061645}
-\pgfsyspdfmark {pgfid14}{37068864}{26075752}
-\pgfsyspdfmark {pgfid15}{38920255}{25850022}
-\@writefile{tdo}{\contentsline {todo}{Add side-by-side result figures for the same source image.}{9}{section*.18}\protected@file@percent }
-\pgfsyspdfmark {pgfid16}{4661699}{26061645}
-\pgfsyspdfmark {pgfid19}{37068864}{19966358}
-\pgfsyspdfmark {pgfid20}{38920255}{19740628}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}\protected@file@percent }
-\newlabel{sec:conclusion}{{6}{9}{Conclusion}{section.6}{}}
-\@writefile{tdo}{\contentsline {todo}{Summarise your findings. Observations from the analysis tool that may be worth confirming on real images: (1) a dithered image's histogram collapses onto $L$ values per channel, yet it still looks smooth because the tone is carried by the \emph  {density} of the dots; (2) error diffusion preserves the mean brightness almost exactly; (3) pixelising before dithering makes the pattern visible and keeps computation fast.}{9}{section*.19}\protected@file@percent }
-\pgfsyspdfmark {pgfid21}{4661699}{23245440}
-\pgfsyspdfmark {pgfid24}{37068864}{13856964}
-\pgfsyspdfmark {pgfid25}{38920255}{13631234}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Dithered Image Gallery}{9}{appendix.A}\protected@file@percent }
-\newlabel{app:gallery}{{A}{9}{Dithered Image Gallery}{appendix.A}{}}
-\@writefile{tdo}{\contentsline {todo}{Run \texttt  {generate\_gallery.py} to create \texttt  {appendix\_gallery.tex}.}{9}{section*.21}\protected@file@percent }
-\pgfsyspdfmark {pgfid26}{4661699}{20429235}
-\pgfsyspdfmark {pgfid29}{37068864}{-20436552}
-\pgfsyspdfmark {pgfid30}{38920255}{-20662282}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Summary of all example images used.}}{10}{table.caption.20}\protected@file@percent }
-\newlabel{tab:images}{{4}{10}{Summary of all example images used}{table.caption.20}{}}
-\gdef \@abspage@last{10}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Point processing}{8}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Random dithering}{8}{subsubsection.5.1.1}\protected@file@percent }
+\@writefile{tdo}{\contentsline {todo}{Add a gradient figure}{8}{section*.15}\protected@file@percent }
+\pgfsyspdfmark {pgfid11}{28934552}{28108035}
+\@writefile{tdo}{\contentsline {todo}{Compare threshold and random dithering}{8}{section*.16}\protected@file@percent }
+\pgfsyspdfmark {pgfid16}{28934552}{28108035}
+\pgfsyspdfmark {pgfid14}{37068864}{28122142}
+\pgfsyspdfmark {pgfid15}{38920255}{27896412}
+\pgfsyspdfmark {pgfid19}{37068864}{25285906}
+\pgfsyspdfmark {pgfid20}{38920255}{25060176}
+\@writefile{tdo}{\contentsline {todo}{Add intensity histogram of the original and dithered images}{8}{section*.17}\protected@file@percent }
+\pgfsyspdfmark {pgfid21}{4661699}{24175875}
+\pgfsyspdfmark {pgfid24}{37068864}{20749376}
+\pgfsyspdfmark {pgfid25}{38920255}{20523646}
+\newlabel{fig:tennis-balls-original}{{10a}{9}{Original}{figure.caption.18}{}}
+\newlabel{sub@fig:tennis-balls-original}{{a}{9}{Original}{figure.caption.18}{}}
+\newlabel{fig:tennis-balls-grayscale}{{10b}{9}{Greyscale}{figure.caption.18}{}}
+\newlabel{sub@fig:tennis-balls-grayscale}{{b}{9}{Greyscale}{figure.caption.18}{}}
+\newlabel{fig:tennis-balls-random2}{{10c}{9}{Random Dithering (Levels=2)}{figure.caption.18}{}}
+\newlabel{sub@fig:tennis-balls-random2}{{c}{9}{Random Dithering (Levels=2)}{figure.caption.18}{}}
+\newlabel{fig:tennis-balls-random3}{{10d}{9}{Random Dithering (Levels=3)}{figure.caption.18}{}}
+\newlabel{sub@fig:tennis-balls-random3}{{d}{9}{Random Dithering (Levels=3)}{figure.caption.18}{}}
+\newlabel{fig:tennis-balls-random9}{{10e}{9}{Random Dithering (Levels=9)}{figure.caption.18}{}}
+\newlabel{sub@fig:tennis-balls-random9}{{e}{9}{Random Dithering (Levels=9)}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Random dithering applied to greyscale image of tennis balls}}{9}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:tennis-balls}{{10}{9}{Random dithering applied to greyscale image of tennis balls}{figure.caption.18}{}}
+\newlabel{fig:yahoo-original}{{11a}{9}{Original}{figure.caption.19}{}}
+\newlabel{sub@fig:yahoo-original}{{a}{9}{Original}{figure.caption.19}{}}
+\newlabel{fig:yahoo-random2}{{11b}{9}{Random Dithering (Levels=2)}{figure.caption.19}{}}
+\newlabel{sub@fig:yahoo-random2}{{b}{9}{Random Dithering (Levels=2)}{figure.caption.19}{}}
+\newlabel{fig:yahoo-random5}{{11c}{9}{Random Dithering (Levels=5)}{figure.caption.19}{}}
+\newlabel{sub@fig:yahoo-random5}{{c}{9}{Random Dithering (Levels=5)}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Random dithering applied to coloured image of Yahoo logo}}{9}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:yahoo}{{11}{9}{Random dithering applied to coloured image of Yahoo logo}{figure.caption.19}{}}
+\newlabel{fig:lanterns-original}{{12a}{10}{Original}{figure.caption.20}{}}
+\newlabel{sub@fig:lanterns-original}{{a}{10}{Original}{figure.caption.20}{}}
+\newlabel{fig:lanterns-grayscale}{{12b}{10}{Greyscale}{figure.caption.20}{}}
+\newlabel{sub@fig:lanterns-grayscale}{{b}{10}{Greyscale}{figure.caption.20}{}}
+\newlabel{fig:lanterns-noise-1}{{12c}{10}{Small noise}{figure.caption.20}{}}
+\newlabel{sub@fig:lanterns-noise-1}{{c}{10}{Small noise}{figure.caption.20}{}}
+\newlabel{fig:lanterns-noise-5}{{12d}{10}{Moderate noise}{figure.caption.20}{}}
+\newlabel{sub@fig:lanterns-noise-5}{{d}{10}{Moderate noise}{figure.caption.20}{}}
+\newlabel{fig:lanterns-noise-10}{{12e}{10}{Large noise}{figure.caption.20}{}}
+\newlabel{sub@fig:lanterns-noise-10}{{e}{10}{Large noise}{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Random dithering applied to greyscale image of lanterns with different levels of noise}}{10}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:lanterns}{{12}{10}{Random dithering applied to greyscale image of lanterns with different levels of noise}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Bayer dithering}{11}{subsubsection.5.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Error diffusion}{12}{subsection.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Different Dithering Algorithms applied to the same image.}}{12}{figure.caption.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Floyd--Steinberg}{12}{subsubsection.5.2.1}\protected@file@percent }
+\newlabel{sec:fs}{{5.2.1}{12}{Floyd--Steinberg}{subsubsection.5.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Atkinson}{12}{subsubsection.5.2.2}\protected@file@percent }
+\newlabel{sec:atkinson}{{5.2.2}{12}{Atkinson}{subsubsection.5.2.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Jarvis--Judice--Ninke}{13}{subsubsection.5.2.3}\protected@file@percent }
+\newlabel{sec:jarvis}{{5.2.3}{13}{Jarvis--Judice--Ninke}{subsubsection.5.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Sierra}{13}{subsubsection.5.2.4}\protected@file@percent }
+\newlabel{sec:sierra}{{5.2.4}{13}{Sierra}{subsubsection.5.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Comparison between algorithms}{13}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Summary of the error-diffusion kernels used.}}{13}{table.caption.22}\protected@file@percent }
+\newlabel{tab:kernels}{{3}{13}{Summary of the error-diffusion kernels used}{table.caption.22}{}}
+\@writefile{tdo}{\contentsline {todo}{Verify publication years and add references for each algorithm.}{13}{section*.23}\protected@file@percent }
+\pgfsyspdfmark {pgfid26}{4661699}{28813689}
+\pgfsyspdfmark {pgfid29}{37068864}{28827796}
+\pgfsyspdfmark {pgfid30}{38920255}{28602066}
+\@writefile{tdo}{\contentsline {todo}{Add side-by-side result figures for the same source image.}{13}{section*.24}\protected@file@percent }
+\pgfsyspdfmark {pgfid31}{4661699}{28813689}
+\pgfsyspdfmark {pgfid34}{37068864}{22718402}
+\pgfsyspdfmark {pgfid35}{38920255}{22492672}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{6}{13}{Conclusion}{section.6}{}}
+\@writefile{tdo}{\contentsline {todo}{Summarise your findings. Observations from the analysis tool that may be worth confirming on real images: (1) a dithered image's histogram collapses onto $L$ values per channel, yet it still looks smooth because the tone is carried by the \emph  {density} of the dots; (2) error diffusion preserves the mean brightness almost exactly; (3) pixelising before dithering makes the pattern visible and keeps computation fast.}{13}{section*.25}\protected@file@percent }
+\pgfsyspdfmark {pgfid36}{4661699}{25997484}
+\pgfsyspdfmark {pgfid39}{37068864}{16609008}
+\pgfsyspdfmark {pgfid40}{38920255}{16383278}
+\bibcite{wiki-quant}{1}
+\bibcite{wiki-dither}{2}
+\bibcite{wiki-cga}{3}
+\@writefile{toc}{\contentsline {section}{References}{14}{section*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Dithered Image Gallery}{15}{appendix.A}\protected@file@percent }
+\newlabel{app:gallery}{{A}{15}{Dithered Image Gallery}{appendix.A}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Summary of all example images used.}}{15}{table.caption.27}\protected@file@percent }
+\newlabel{tab:images}{{4}{15}{Summary of all example images used}{table.caption.27}{}}
+\@writefile{tdo}{\contentsline {todo}{Run \texttt  {generate\_gallery.py} to create \texttt  {appendix\_gallery.tex}.}{15}{section*.28}\protected@file@percent }
+\pgfsyspdfmark {pgfid41}{4661699}{22153884}
+\pgfsyspdfmark {pgfid44}{37068864}{22167991}
+\pgfsyspdfmark {pgfid45}{38920255}{21942261}
+\gdef \@abspage@last{15}

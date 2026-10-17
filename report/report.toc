@@ -5,11 +5,15 @@
 \contentsline {section}{\numberline {3}Use Cases: Early Game Graphics}{5}{section.3}%
 \contentsline {section}{\numberline {4}The Primitive Approach: Nearest Colour}{6}{section.4}%
 \contentsline {section}{\numberline {5}Dithering Algorithms}{8}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Error diffusion}{8}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Floyd--Steinberg}{8}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Atkinson}{8}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Jarvis--Judice--Ninke}{9}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Sierra}{9}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Comparison}{9}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}%
-\contentsline {section}{\numberline {A}Dithered Image Gallery}{9}{appendix.A}%
+\contentsline {subsection}{\numberline {5.1}Point processing}{8}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Random dithering}{8}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Bayer dithering}{11}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Error diffusion}{12}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Floyd--Steinberg}{12}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Atkinson}{12}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Jarvis--Judice--Ninke}{13}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}Sierra}{13}{subsubsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.3}Comparison between algorithms}{13}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}%
+\contentsline {section}{References}{14}{section*.25}%
+\contentsline {section}{\numberline {A}Dithered Image Gallery}{15}{appendix.A}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.13)  17 OCT 2026 17:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.13)  17 OCT 2026 21:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -666,34 +666,34 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [1
 
 {C:/Users/xuntr/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
-<../output/Figure_1_1.png, id=91, 722.7pt x 438.6789pt>
-File: ../output/Figure_1_1.png Graphic file (type png)
-<use ../output/Figure_1_1.png>
-Package pdftex.def Info: ../output/Figure_1_1.png  used on input line 37.
+<../output/Section_1/Figure_1_1.png, id=111, 722.7pt x 438.6789pt>
+File: ../output/Section_1/Figure_1_1.png Graphic file (type png)
+<use ../output/Section_1/Figure_1_1.png>
+Package pdftex.def Info: ../output/Section_1/Figure_1_1.png  used on input line 37.
 (pdftex.def)             Requested size: 409.71692pt x 248.69743pt.
- [2{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <../output/Figure_1_1.png>]
-<../data/images/Golden-Retriever.jpeg, id=108, 501.875pt x 501.875pt>
+ [2{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <../output/Section_1/Figure_1_1.png>]
+<../data/images/Golden-Retriever.jpeg, id=128, 501.875pt x 501.875pt>
 File: ../data/images/Golden-Retriever.jpeg Graphic file (type jpg)
 <use ../data/images/Golden-Retriever.jpeg>
 Package pdftex.def Info: ../data/images/Golden-Retriever.jpeg  used on input line 92.
 (pdftex.def)             Requested size: 182.09486pt x 182.09924pt.
-<../output/Figure_1_2.png, id=109, 501.875pt x 501.875pt>
-File: ../output/Figure_1_2.png Graphic file (type png)
-<use ../output/Figure_1_2.png>
-Package pdftex.def Info: ../output/Figure_1_2.png  used on input line 96.
+<../output/Section_1/Figure_1_2.png, id=129, 501.875pt x 501.875pt>
+File: ../output/Section_1/Figure_1_2.png Graphic file (type png)
+<use ../output/Section_1/Figure_1_2.png>
+Package pdftex.def Info: ../output/Section_1/Figure_1_2.png  used on input line 96.
 (pdftex.def)             Requested size: 182.09486pt x 182.09924pt.
-<../output/Figure_1_3.png, id=110, 548.5293pt x 439.4016pt>
-File: ../output/Figure_1_3.png Graphic file (type png)
-<use ../output/Figure_1_3.png>
-Package pdftex.def Info: ../output/Figure_1_3.png  used on input line 109.
+<../output/Section_1/Figure_1_3.png, id=130, 548.5293pt x 439.4016pt>
+File: ../output/Section_1/Figure_1_3.png Graphic file (type png)
+<use ../output/Section_1/Figure_1_3.png>
+Package pdftex.def Info: ../output/Section_1/Figure_1_3.png  used on input line 109.
 (pdftex.def)             Requested size: 318.66948pt x 255.2822pt.
- [3 <../data/images/Golden-Retriever.jpeg> <../output/Figure_1_2.png (PNG copy)> <../output/Figure_1_3.png>]
-<../data/figures/IBM-Color-Graphics-Adapter.jpg, id=119, 879.285pt x 361.35pt>
+ [3 <../data/images/Golden-Retriever.jpeg> <../output/Section_1/Figure_1_2.png (PNG copy)> <../output/Section_1/Figure_1_3.png>]
+<../data/figures/IBM-Color-Graphics-Adapter.jpg, id=139, 879.285pt x 361.35pt>
 File: ../data/figures/IBM-Color-Graphics-Adapter.jpg Graphic file (type jpg)
 <use ../data/figures/IBM-Color-Graphics-Adapter.jpg>
 Package pdftex.def Info: ../data/figures/IBM-Color-Graphics-Adapter.jpg  used on input line 132.
 (pdftex.def)             Requested size: 264.0424pt x 108.51059pt.
-<../data/figures/IBM-5153-Color.png, id=120, 513.92pt x 256.96pt>
+<../data/figures/IBM-5153-Color.png, id=140, 513.92pt x 256.96pt>
 File: ../data/figures/IBM-5153-Color.png Graphic file (type png)
 <use ../data/figures/IBM-5153-Color.png>
 Package pdftex.def Info: ../data/figures/IBM-5153-Color.png  used on input line 136.
@@ -702,128 +702,209 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 16
  (C:\Users\xuntr\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [4{C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc} <../data/figures/IBM-Color-Graphics-Adapter.jpg> <../data/figures/IBM-5153-Color.png (PNG copy)>]
-<../data/figures/Paku-Paku.png, id=134, 459.21562pt x 325.215pt>
+<../data/figures/Paku-Paku.png, id=154, 459.21562pt x 325.215pt>
 File: ../data/figures/Paku-Paku.png Graphic file (type png)
 <use ../data/figures/Paku-Paku.png>
 Package pdftex.def Info: ../data/figures/Paku-Paku.png  used on input line 209.
 (pdftex.def)             Requested size: 182.09486pt x 128.95723pt.
-<../data/figures/PC-Paint.png, id=135, 321.2pt x 200.75pt>
+<../data/figures/PC-Paint.png, id=155, 321.2pt x 200.75pt>
 File: ../data/figures/PC-Paint.png Graphic file (type png)
 <use ../data/figures/PC-Paint.png>
 Package pdftex.def Info: ../data/figures/PC-Paint.png  used on input line 214.
 (pdftex.def)             Requested size: 204.85846pt x 128.03845pt.
-<../data/figures/SimCity.png, id=136, 642.4pt x 401.5pt>
+<../data/figures/SimCity.png, id=156, 642.4pt x 401.5pt>
 File: ../data/figures/SimCity.png Graphic file (type png)
 <use ../data/figures/SimCity.png>
 Package pdftex.def Info: ../data/figures/SimCity.png  used on input line 219.
 (pdftex.def)             Requested size: 273.14923pt x 170.72406pt.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 240.
-<../data/images/Sonic.png, id=137, 1213.53375pt x 1683.28876pt>
+<../data/images/Sonic.png, id=157, 1213.53375pt x 1683.28876pt>
 File: ../data/images/Sonic.png Graphic file (type png)
 <use ../data/images/Sonic.png>
 Package pdftex.def Info: ../data/images/Sonic.png  used on input line 244.
 (pdftex.def)             Requested size: 91.04742pt x 126.26689pt.
  [5 <../data/figures/Paku-Paku.png (PNG copy)> <../data/figures/PC-Paint.png> <../data/figures/SimCity.png> <../data/images/Sonic.png>]
-<../output/Apple_1.png, id=150, 925.056pt x 442.2924pt>
-File: ../output/Apple_1.png Graphic file (type png)
-<use ../output/Apple_1.png>
-Package pdftex.def Info: ../output/Apple_1.png  used on input line 289.
+<../output/Section_4/Apple_1.png, id=170, 925.056pt x 442.2924pt>
+File: ../output/Section_4/Apple_1.png Graphic file (type png)
+<use ../output/Section_4/Apple_1.png>
+Package pdftex.def Info: ../output/Section_4/Apple_1.png  used on input line 289.
 (pdftex.def)             Requested size: 432.48051pt x 206.78415pt.
-<../output/Apple_2.png, id=151, 594.7821pt x 361.35pt>
-File: ../output/Apple_2.png Graphic file (type png)
-<use ../output/Apple_2.png>
-Package pdftex.def Info: ../output/Apple_2.png  used on input line 296.
+<../output/Section_4/Apple_2.png, id=171, 594.7821pt x 361.35pt>
+File: ../output/Section_4/Apple_2.png Graphic file (type png)
+<use ../output/Section_4/Apple_2.png>
+Package pdftex.def Info: ../output/Section_4/Apple_2.png  used on input line 296.
 (pdftex.def)             Requested size: 250.38564pt x 152.11884pt.
- [6 <../output/Apple_1.png> <../output/Apple_2.png>]
-<../data/images/Rock.png, id=165, 1284.8pt x 963.6pt>
+ [6 <../output/Section_4/Apple_1.png> <../output/Section_4/Apple_2.png>]
+<../data/images/Rock.png, id=185, 1284.8pt x 963.6pt>
 File: ../data/images/Rock.png Graphic file (type png)
 <use ../data/images/Rock.png>
 Package pdftex.def Info: ../data/images/Rock.png  used on input line 325.
 (pdftex.def)             Requested size: 182.09486pt x 136.56456pt.
-<../output/Rock_1.png, id=166, 1284.8pt x 963.6pt>
-File: ../output/Rock_1.png Graphic file (type png)
-<use ../output/Rock_1.png>
-Package pdftex.def Info: ../output/Rock_1.png  used on input line 330.
+<../output/Section_4/Rock_1.png, id=186, 1284.8pt x 963.6pt>
+File: ../output/Section_4/Rock_1.png Graphic file (type png)
+<use ../output/Section_4/Rock_1.png>
+Package pdftex.def Info: ../output/Section_4/Rock_1.png  used on input line 330.
 (pdftex.def)             Requested size: 182.09486pt x 136.56456pt.
- [7 <../data/images/Rock.png> <../output/Rock_1.png (PNG copy)>]
-<../data/images/Eagle.jpg, id=176, 1541.76pt x 1159.33125pt>
+ [7 <../data/images/Rock.png> <../output/Section_4/Rock_1.png (PNG copy)>]
+
+LaTeX Warning: Marginpar on page 8 moved.
+
+
+LaTeX Warning: Marginpar on page 8 moved.
+
+[8]
+<../data/images/Tennis-Balls.jpg, id=209, 385.44pt x 216.81pt>
+File: ../data/images/Tennis-Balls.jpg Graphic file (type jpg)
+<use ../data/images/Tennis-Balls.jpg>
+Package pdftex.def Info: ../data/images/Tennis-Balls.jpg  used on input line 398.
+(pdftex.def)             Requested size: 204.85846pt x 115.23296pt.
+<../output/Section_5_1/Tennis-Balls_greyscaled.png, id=210, 1606.0pt x 903.375pt>
+File: ../output/Section_5_1/Tennis-Balls_greyscaled.png Graphic file (type png)
+<use ../output/Section_5_1/Tennis-Balls_greyscaled.png>
+Package pdftex.def Info: ../output/Section_5_1/Tennis-Balls_greyscaled.png  used on input line 404.
+(pdftex.def)             Requested size: 204.85846pt x 115.22359pt.
+<../output/Section_5_1/Tennis-Balls_random2.png, id=211, 1606.0pt x 903.375pt>
+File: ../output/Section_5_1/Tennis-Balls_random2.png Graphic file (type png)
+<use ../output/Section_5_1/Tennis-Balls_random2.png>
+Package pdftex.def Info: ../output/Section_5_1/Tennis-Balls_random2.png  used on input line 410.
+(pdftex.def)             Requested size: 141.12456pt x 79.37042pt.
+<../output/Section_5_1/Tennis-Balls_random3.png, id=212, 1606.0pt x 903.375pt>
+File: ../output/Section_5_1/Tennis-Balls_random3.png Graphic file (type png)
+<use ../output/Section_5_1/Tennis-Balls_random3.png>
+Package pdftex.def Info: ../output/Section_5_1/Tennis-Balls_random3.png  used on input line 415.
+(pdftex.def)             Requested size: 141.12456pt x 79.37042pt.
+<../output/Section_5_1/Tennis-Balls_random9.png, id=213, 1606.0pt x 903.375pt>
+File: ../output/Section_5_1/Tennis-Balls_random9.png Graphic file (type png)
+<use ../output/Section_5_1/Tennis-Balls_random9.png>
+Package pdftex.def Info: ../output/Section_5_1/Tennis-Balls_random9.png  used on input line 420.
+(pdftex.def)             Requested size: 141.12456pt x 79.37042pt.
+<../data/images/Yahoo.png, id=215, 923.45pt x 923.45pt>
+File: ../data/images/Yahoo.png Graphic file (type png)
+<use ../data/images/Yahoo.png>
+Package pdftex.def Info: ../data/images/Yahoo.png  used on input line 436.
+(pdftex.def)             Requested size: 136.57462pt x 136.567pt.
+<../output/Section_5_1/Yahoo_random2.png, id=216, 923.45pt x 923.45pt>
+File: ../output/Section_5_1/Yahoo_random2.png Graphic file (type png)
+<use ../output/Section_5_1/Yahoo_random2.png>
+Package pdftex.def Info: ../output/Section_5_1/Yahoo_random2.png  used on input line 442.
+(pdftex.def)             Requested size: 136.57462pt x 136.567pt.
+<../output/Section_5_1/Yahoo_random5.png, id=217, 923.45pt x 923.45pt>
+File: ../output/Section_5_1/Yahoo_random5.png Graphic file (type png)
+<use ../output/Section_5_1/Yahoo_random5.png>
+Package pdftex.def Info: ../output/Section_5_1/Yahoo_random5.png  used on input line 448.
+(pdftex.def)             Requested size: 136.57462pt x 136.567pt.
+<../data/images/Lanterns.jpg, id=220, 2168.1pt x 1084.05pt>
+File: ../data/images/Lanterns.jpg Graphic file (type jpg)
+<use ../data/images/Lanterns.jpg>
+Package pdftex.def Info: ../data/images/Lanterns.jpg  used on input line 468.
+(pdftex.def)             Requested size: 204.85846pt x 102.42342pt.
+<../output/Section_5_1/Lanterns_greyscaled.png, id=221, 2168.1pt x 1084.05pt>
+File: ../output/Section_5_1/Lanterns_greyscaled.png Graphic file (type png)
+<use ../output/Section_5_1/Lanterns_greyscaled.png>
+Package pdftex.def Info: ../output/Section_5_1/Lanterns_greyscaled.png  used on input line 473.
+(pdftex.def)             Requested size: 204.85846pt x 102.42342pt.
+<../output/Section_5_1/Lanterns_random_1.0.png, id=222, 2168.1pt x 1084.05pt>
+File: ../output/Section_5_1/Lanterns_random_1.0.png Graphic file (type png)
+<use ../output/Section_5_1/Lanterns_random_1.0.png>
+Package pdftex.def Info: ../output/Section_5_1/Lanterns_random_1.0.png  used on input line 479.
+(pdftex.def)             Requested size: 318.66948pt x 159.32532pt.
+<../output/Section_5_1/Lanterns_random_5.0.png, id=223, 2168.1pt x 1084.05pt>
+File: ../output/Section_5_1/Lanterns_random_5.0.png Graphic file (type png)
+<use ../output/Section_5_1/Lanterns_random_5.0.png>
+Package pdftex.def Info: ../output/Section_5_1/Lanterns_random_5.0.png  used on input line 484.
+(pdftex.def)             Requested size: 318.66948pt x 159.32532pt.
+<../output/Section_5_1/Lanterns_random_10.0.png, id=224, 2168.1pt x 1084.05pt>
+File: ../output/Section_5_1/Lanterns_random_10.0.png Graphic file (type png)
+<use ../output/Section_5_1/Lanterns_random_10.0.png>
+Package pdftex.def Info: ../output/Section_5_1/Lanterns_random_10.0.png  used on input line 489.
+(pdftex.def)             Requested size: 318.66948pt x 159.32532pt.
+ [9 <../data/images/Tennis-Balls.jpg> <../output/Section_5_1/Tennis-Balls_greyscaled.png (PNG copy)> <../output/Section_5_1/Tennis-Balls_random2.png (PNG copy)> <../output/Section_5_1/Tennis-Balls_random3.png (PNG copy)> <../output/Section_5_1/Tennis-Balls_random9.png (PNG copy)> <../data/images/Yahoo.png> <../output/Section_5_1/Yahoo_random2.png (PNG copy)> <../output/Section_5_1/Yahoo_random5.png (PNG copy)>] [10 <../data/images/Lanterns.jpg> <../output/Section_5_1/Lanterns_greyscaled.png (PNG copy)> <../output/Section_5_1/Lanterns_random_1.0.png (PNG copy)> <../output/Section_5_1/Lanterns_random_5.0.png (PNG copy)> <../output/Section_5_1/Lanterns_random_10.0.png (PNG copy)>] [11]
+<../data/images/Eagle.jpg, id=240, 1541.76pt x 1159.33125pt>
 File: ../data/images/Eagle.jpg Graphic file (type jpg)
 <use ../data/images/Eagle.jpg>
-Package pdftex.def Info: ../data/images/Eagle.jpg  used on input line 361.
+Package pdftex.def Info: ../data/images/Eagle.jpg  used on input line 519.
 (pdftex.def)             Requested size: 145.68144pt x 109.53615pt.
-<../output/Figure_5_2.png, id=177, 1204.5pt x 905.3825pt>
-File: ../output/Figure_5_2.png Graphic file (type png)
-<use ../output/Figure_5_2.png>
-Package pdftex.def Info: ../output/Figure_5_2.png  used on input line 365.
+<../output/Section_5_2/Figure_5_2.png, id=241, 1204.5pt x 905.3825pt>
+File: ../output/Section_5_2/Figure_5_2.png Graphic file (type png)
+<use ../output/Section_5_2/Figure_5_2.png>
+Package pdftex.def Info: ../output/Section_5_2/Figure_5_2.png  used on input line 523.
 (pdftex.def)             Requested size: 145.68144pt x 109.49774pt.
-<../output/Figure_5_3.png, id=178, 1204.5pt x 905.3825pt>
-File: ../output/Figure_5_3.png Graphic file (type png)
-<use ../output/Figure_5_3.png>
-Package pdftex.def Info: ../output/Figure_5_3.png  used on input line 369.
+<../output/Section_5_2/Figure_5_3.png, id=242, 1204.5pt x 905.3825pt>
+File: ../output/Section_5_2/Figure_5_3.png Graphic file (type png)
+<use ../output/Section_5_2/Figure_5_3.png>
+Package pdftex.def Info: ../output/Section_5_2/Figure_5_3.png  used on input line 527.
 (pdftex.def)             Requested size: 145.68144pt x 109.49774pt.
-<../output/Figure_5_4.png, id=179, 1204.5pt x 905.3825pt>
-File: ../output/Figure_5_4.png Graphic file (type png)
-<use ../output/Figure_5_4.png>
-Package pdftex.def Info: ../output/Figure_5_4.png  used on input line 373.
+<../output/Section_5_2/Figure_5_4.png, id=243, 1204.5pt x 905.3825pt>
+File: ../output/Section_5_2/Figure_5_4.png Graphic file (type png)
+<use ../output/Section_5_2/Figure_5_4.png>
+Package pdftex.def Info: ../output/Section_5_2/Figure_5_4.png  used on input line 531.
 (pdftex.def)             Requested size: 145.68144pt x 109.49774pt.
-<../output/Figure_5_5.png, id=180, 1204.5pt x 905.3825pt>
-File: ../output/Figure_5_5.png Graphic file (type png)
-<use ../output/Figure_5_5.png>
-Package pdftex.def Info: ../output/Figure_5_5.png  used on input line 377.
+<../output/Section_5_2/Figure_5_5.png, id=244, 1204.5pt x 905.3825pt>
+File: ../output/Section_5_2/Figure_5_5.png Graphic file (type png)
+<use ../output/Section_5_2/Figure_5_5.png>
+Package pdftex.def Info: ../output/Section_5_2/Figure_5_5.png  used on input line 535.
 (pdftex.def)             Requested size: 145.68144pt x 109.49774pt.
- [8 <../data/images/Eagle.jpg> <../output/Figure_5_2.png (PNG copy)> <../output/Figure_5_3.png (PNG copy)> <../output/Figure_5_4.png (PNG copy)> <../output/Figure_5_5.png (PNG copy)>]
+ [12 <../data/images/Eagle.jpg> <../output/Section_5_2/Figure_5_2.png (PNG copy)> <../output/Section_5_2/Figure_5_3.png (PNG copy)> <../output/Section_5_2/Figure_5_4.png (PNG copy)> <../output/Section_5_2/Figure_5_5.png (PNG copy)>]
 
-LaTeX Warning: Marginpar on page 9 moved.
+LaTeX Warning: Marginpar on page 13 moved.
 
 
-LaTeX Warning: Marginpar on page 9 moved.
+LaTeX Warning: Marginpar on page 13 moved.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 548.
-(C:\Users\xuntr\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+[13]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 659.
+ (C:\Users\xuntr\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (50.63852pt too wide) in paragraph at lines 548--548
+Underfull \hbox (badness 4316) in paragraph at lines 657--661
+[]\T1/lmr/m/n/10 Wikipedia con-trib-u-tors. \T1/lmr/m/it/10 Quan-ti-za-tion (sig-nal pro-cess-ing)\T1/lmr/m/n/10 . [][]$\T1/lmtt/m/n/10 https : / / en . wikipedia . org / wiki /
+ []
+
+
+Underfull \hbox (badness 6842) in paragraph at lines 669--673
+[]\T1/lmr/m/n/10 Wikipedia con-trib-u-tors. \T1/lmr/m/it/10 Color Graph-ics Adapter\T1/lmr/m/n/10 . [][]$\T1/lmtt/m/n/10 https : / / en . wikipedia . org / wiki / Color _
+ []
+
+[14]
+Overfull \hbox (50.63852pt too wide) in paragraph at lines 726--726
 \T1/lmtt/m/n/10 generate_gallery.py 
  []
 
 
-Overfull \hbox (58.66626pt too wide) in paragraph at lines 548--548
+Overfull \hbox (58.66626pt too wide) in paragraph at lines 726--726
 \T1/lmtt/m/n/10 appendix_gallery.tex\T1/lmr/m/n/10 .[]  
  []
 
 
-Overfull \hbox (50.63852pt too wide) in paragraph at lines 548--548
+Overfull \hbox (50.63852pt too wide) in paragraph at lines 726--726
 \T1/lmtt/m/n/10 generate_gallery.py 
  []
 
 
-Overfull \hbox (58.66626pt too wide) in paragraph at lines 548--548
+Overfull \hbox (58.66626pt too wide) in paragraph at lines 726--726
 \T1/lmtt/m/n/10 appendix_gallery.tex\T1/lmr/m/n/10 .[]  
  []
 
-
-LaTeX Warning: Marginpar on page 9 moved.
-
-[9] [10] (report.aux)
+[15] (report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: CE51F98D655D6FF503FA9268DED4A47E;2068.
+(rerunfilecheck)             Checksum: 3A71841C8A944DBCD28FBB2E691E73E3;2743.
  ) 
 Here is how much of TeX's memory you used:
- 23525 strings out of 467871
- 440254 string characters out of 5418375
- 852155 words of memory out of 5000000
- 51937 multiletter control sequences out of 15000+600000
+ 23707 strings out of 467871
+ 447236 string characters out of 5418375
+ 855284 words of memory out of 5000000
+ 52096 multiletter control sequences out of 15000+600000
  691054 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,10n,108p,573b,950s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,10n,108p,574b,950s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (10 pages, 5995226 bytes).
+Output written on report.pdf (15 pages, 14141163 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 55 named destinations out of 1000 (max. 500000)
- 228 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 78 named destinations out of 1000 (max. 500000)
+ 325 words of extra memory for PDF output out of 10000 (max. 10000000)
 
