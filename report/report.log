@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.13)  17 OCT 2026 21:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.10.13)  21 OCT 2026 13:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -856,32 +856,32 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 65
  (C:\Users\xuntr\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 4316) in paragraph at lines 657--661
+Underfull \hbox (badness 4316) in paragraph at lines 663--667
 []\T1/lmr/m/n/10 Wikipedia con-trib-u-tors. \T1/lmr/m/it/10 Quan-ti-za-tion (sig-nal pro-cess-ing)\T1/lmr/m/n/10 . [][]$\T1/lmtt/m/n/10 https : / / en . wikipedia . org / wiki /
  []
 
 
-Underfull \hbox (badness 6842) in paragraph at lines 669--673
+Underfull \hbox (badness 6842) in paragraph at lines 675--679
 []\T1/lmr/m/n/10 Wikipedia con-trib-u-tors. \T1/lmr/m/it/10 Color Graph-ics Adapter\T1/lmr/m/n/10 . [][]$\T1/lmtt/m/n/10 https : / / en . wikipedia . org / wiki / Color _
  []
 
 [14]
-Overfull \hbox (50.63852pt too wide) in paragraph at lines 726--726
+Overfull \hbox (50.63852pt too wide) in paragraph at lines 732--732
 \T1/lmtt/m/n/10 generate_gallery.py 
  []
 
 
-Overfull \hbox (58.66626pt too wide) in paragraph at lines 726--726
+Overfull \hbox (58.66626pt too wide) in paragraph at lines 732--732
 \T1/lmtt/m/n/10 appendix_gallery.tex\T1/lmr/m/n/10 .[]  
  []
 
 
-Overfull \hbox (50.63852pt too wide) in paragraph at lines 726--726
+Overfull \hbox (50.63852pt too wide) in paragraph at lines 732--732
 \T1/lmtt/m/n/10 generate_gallery.py 
  []
 
 
-Overfull \hbox (58.66626pt too wide) in paragraph at lines 726--726
+Overfull \hbox (58.66626pt too wide) in paragraph at lines 732--732
 \T1/lmtt/m/n/10 appendix_gallery.tex\T1/lmr/m/n/10 .[]  
  []
 
@@ -894,17 +894,17 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 3A71841C8A944DBCD28FBB2E691E73E3;2743.
  ) 
 Here is how much of TeX's memory you used:
- 23707 strings out of 467871
- 447236 string characters out of 5418375
- 855284 words of memory out of 5000000
- 52096 multiletter control sequences out of 15000+600000
+ 23709 strings out of 467871
+ 447277 string characters out of 5418375
+ 854323 words of memory out of 5000000
+ 52097 multiletter control sequences out of 15000+600000
  691054 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,10n,108p,574b,950s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/xuntr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (15 pages, 14141163 bytes).
+Output written on report.pdf (15 pages, 14144542 bytes).
 PDF statistics:
- 369 PDF objects out of 1000 (max. 8388607)
- 78 named destinations out of 1000 (max. 500000)
+ 373 PDF objects out of 1000 (max. 8388607)
+ 79 named destinations out of 1000 (max. 500000)
  325 words of extra memory for PDF output out of 10000 (max. 10000000)
 

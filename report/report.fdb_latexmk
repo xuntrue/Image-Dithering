@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1792243566.56298 "c:/Users/xuntr/Image-Dithering/report/report.tex" "report.pdf" "report" 1792243581.57453 0
+["pdflatex"] 1792561433.40983 "c:/Users/xuntr/Image-Dithering/report/report.tex" "report.pdf" "report" 1792561442.82004 0
   "../data/figures/IBM-5153-Color.png" 1792144440 3931 b3816fc128bdde1b1aef0fa474b2d3b1 ""
   "../data/figures/IBM-Color-Graphics-Adapter.jpg" 1792144440 138362 940840e3f58a53611563906c37bdffbb ""
   "../data/figures/PC-Paint.png" 1792144440 4751 de66e7f4170b79a9d9684ebd24df7a3d ""
@@ -224,11 +224,11 @@
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/xuntr/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/xuntr/Image-Dithering/report/report.tex" 1792243555 31107 6c9bd998d788f55b6f3c3dd9e4b0fd41 ""
-  "report.aux" 1792243580 14000 0b8a7e12e0eecd386be746b4552e5009 "pdflatex"
-  "report.out" 1792243580 2743 3a71841c8a944dbcd28fbb2e691e73e3 "pdflatex"
-  "report.tex" 1792243555 31107 6c9bd998d788f55b6f3c3dd9e4b0fd41 ""
-  "report.toc" 1792243580 1561 b9d678defbdbf1e57ab90d64428a8655 "pdflatex"
+  "c:/Users/xuntr/Image-Dithering/report/report.tex" 1792561406 31293 613b613b7b992bf742d873399279d216 ""
+  "report.aux" 1792561441 14031 31e360e7bef269aa92b66c6496738094 "pdflatex"
+  "report.out" 1792561441 2743 3a71841c8a944dbcd28fbb2e691e73e3 "pdflatex"
+  "report.tex" 1792561406 31293 613b613b7b992bf742d873399279d216 ""
+  "report.toc" 1792561441 1561 b9d678defbdbf1e57ab90d64428a8655 "pdflatex"
   (generated)
   "report.aux"
   "report.log"
